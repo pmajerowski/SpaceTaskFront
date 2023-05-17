@@ -15,9 +15,10 @@ body {
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
-  border: 1px solid steelblue;
+  border: 3px solid steelblue;
   padding: 30px;
   border-radius: 5px;
+  height: auto;
 }
 .btn {
   display: inline-block;
