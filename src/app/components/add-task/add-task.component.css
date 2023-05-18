@@ -1,3 +1,9 @@
 .add-form {
     margin-bottom: 40px;
+    margin-left: 9px;
+    width: 95%;
+}
+
+.add-form label {
+    margin-left: 7px;
 }
