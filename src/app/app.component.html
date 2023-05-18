@@ -5,17 +5,17 @@
 
   <div class="container">
     <app-header title="to do"></app-header>
-    <app-tasks></app-tasks>
+    <app-tasks [tasks]="filterTasksByStatus(TaskStatus.TO_DO)"></app-tasks>
   </div>
 
   <div class="container">
     <app-header title="in progress"></app-header>
-    <app-tasks></app-tasks>
+    <app-tasks [tasks]="filterTasksByStatus(TaskStatus.IN_PROGRESS)"></app-tasks>
   </div>
 
   <div class="container">
     <app-header title="done"></app-header>
-    <app-tasks></app-tasks>
+    <app-tasks [tasks]="filterTasksByStatus(TaskStatus.DONE)"></app-tasks>
   </div>
 
 </div>

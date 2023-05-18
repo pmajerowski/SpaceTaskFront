@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import {Task} from '../../Task';
 import {TaskService} from '../../services/task.service';
+import { TaskStatus } from '../../TaskStatus';
 
 @Component({
   selector: 'app-tasks',
@@ -8,12 +9,13 @@ import {TaskService} from '../../services/task.service';
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent implements OnInit {
-  tasks: Task[] = [];
+  @Input() @Output() tasks: Task[] = [];
 
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
     this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
+    console.log("tasksssssssss: ", this.tasks)
   }
 
   deleteTask(task: Task) {
@@ -27,4 +29,10 @@ export class TasksComponent implements OnInit {
     this.tasks.push(task);
     this.taskService.addTask(task).subscribe();
   }
+
+  filterTasksByStatus(status: TaskStatus) {
+    return this.tasks.filter((task) => task.status === status);
+  }
+
+
 }
