@@ -9,13 +9,13 @@ import { TaskStatus } from '../../TaskStatus';
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent implements OnInit {
-  @Input() @Output() tasks: Task[] = [];
+  @Input() tasks: Task[] = [];
+  @Input() tasksFilter!: TaskStatus;
 
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
-    this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
-    console.log("tasksssssssss: ", this.tasks)
+    this.taskService.getTasks().subscribe((tasks) => (this.tasks = this.filterTasks(tasks)));
   }
 
   deleteTask(task: Task) {
@@ -30,9 +30,7 @@ export class TasksComponent implements OnInit {
     this.taskService.addTask(task).subscribe();
   }
 
-  filterTasksByStatus(status: TaskStatus) {
-    return this.tasks.filter((task) => task.status === status);
+  filterTasks(tasks: Task[]) {
+    return tasks.filter(item => item.status === this.tasksFilter);
   }
-
-
 }

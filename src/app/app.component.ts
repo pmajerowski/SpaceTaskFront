@@ -1,6 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { TaskStatus } from './TaskStatus';
-import { Task } from './Task';
+import { Component } from '@angular/core';
 
 
 @Component({
@@ -9,9 +7,5 @@ import { Task } from './Task';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title: string = 'spaceTask';
-  status?: TaskStatus;
-
-  TaskStatus = TaskStatus;
 
 }
