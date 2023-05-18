@@ -8,6 +8,10 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  background-image: url('./assets/bckg.jpg');
+    background-repeat: no-repeat;
+    background-position: auto;
+    background-size: 100%;
 
 }
 
@@ -16,10 +20,11 @@ body {
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
-  border: 2px solid lightblue;
+  border: 1px solid black;
   padding: 30px;
   border-radius: 10px;
   height: auto;
+  box-shadow: 14px 14px 8px rgba(0, 0, 0, 0.2);
 }
 .btn {
   display: inline-block;

@@ -1,12 +1,19 @@
 header {
+    color: white;
     display: flex;
     /* justify-content: space-between; */
     align-items: center;
     margin-bottom: 30px;
     margin-left: 45px;
     padding-top: 30px;
+    font-size: large;
 }
 
 header div {
     margin-left: 100px;
+}
+
+img {
+    width: 50px;
+    margin-right: 10px;
 }

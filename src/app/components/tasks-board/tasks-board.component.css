@@ -1,17 +1,24 @@
 .container-full {
   display: flex;
+  
 }
 
 div {
   min-width: 30%;
 }
 
+.container {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
 .container h2 {
-  background: lightblue;
+  background: linear-gradient(30deg, "deepskyblue");
   color: black;
   padding-left: 20px;
   margin-left: 6px;
   margin-right: 6px;
   margin-bottom: 10px;
   border-radius: 6px;
+  
 }
+
