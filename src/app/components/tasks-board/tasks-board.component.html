@@ -1,16 +1,17 @@
+
 <div class="container-full">
   <div class="container">
-    <app-header title="to do"></app-header>
+    <h2>to do</h2>
     <app-tasks [tasksFilter]="TaskStatus.TO_DO" *ngIf="tasks" [tasks]="tasks"></app-tasks>
   </div>
 
   <div class="container">
-    <app-header title="in progress"></app-header>
+    <h2>in progress</h2>
     <app-tasks [tasksFilter]="TaskStatus.IN_PROGRESS" *ngIf="tasks" [tasks]="tasks"></app-tasks>
   </div>
 
   <div class="container">
-    <app-header title="done"></app-header>
+    <h2>done</h2>
     <app-tasks [tasksFilter]="TaskStatus.DONE" *ngIf="tasks" [tasks]="tasks"></app-tasks>
   </div>
 </div>

@@ -1,6 +1,12 @@
 header {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     margin-bottom: 30px;
+    margin-left: 45px;
+    padding-top: 30px;
+}
+
+header div {
+    margin-left: 100px;
 }

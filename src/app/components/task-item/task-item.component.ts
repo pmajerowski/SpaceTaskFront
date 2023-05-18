@@ -16,7 +16,11 @@ export class TaskItemComponent {
   constructor() {}
 
   onDelete(task: Task) {
+    const confirmation = confirm("Are you sure you want to delete this entry?");
+  if (confirmation) {
     this.onDeleteTask.emit(task);
+  }
+    
   }
 
   ngOnInit() : void {}

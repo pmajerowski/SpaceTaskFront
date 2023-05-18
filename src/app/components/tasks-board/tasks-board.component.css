@@ -5,3 +5,13 @@
 div {
   min-width: 30%;
 }
+
+.container h2 {
+  background: lightblue;
+  color: black;
+  padding-left: 20px;
+  margin-left: 6px;
+  margin-right: 6px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
