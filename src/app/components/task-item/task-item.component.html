@@ -1,5 +1,5 @@
 <div class="task">
-    <h3>{{ task.name }} 
+    <h3>{{ task?.name }} 
         <fa-icon 
             (click)="onDelete(task)"
             [ngStyle]="{'color':'red'}" 
@@ -7,7 +7,7 @@
             >
         </fa-icon>
     </h3>
-    <p>{{ task.description }}</p>
-    <p>{{ task.status }} </p>
+    <p>{{ task?.description }}</p>
+    <p>{{ task?.status }} </p>
     
 </div>
