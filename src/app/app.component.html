@@ -1,4 +1,18 @@
-<div class="container">
-  <app-header></app-header>
-  <router-outlet></router-outlet>
+<div class="container-full">
+
+  <div class="container">
+    <app-header title="to do"></app-header>
+    <app-tasks></app-tasks>
+  </div>
+
+  <div class="container">
+    <app-header title="in progress"></app-header>
+    <app-tasks-in-progress></app-tasks-in-progress>
+  </div>
+
+  <div class="container">
+    <app-header title="done"></app-header>
+    <app-tasks-done></app-tasks-done>
+  </div>
+
 </div>

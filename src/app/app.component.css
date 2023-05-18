@@ -1,0 +1,7 @@
+.container-full {
+    display: flex;
+  }
+
+div {
+    min-width: 30%;
+}
