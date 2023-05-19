@@ -18,4 +18,11 @@ export class TasksBoardComponent {
   ngOnInit(): void {
     this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
   }
+
+  addTask(task: Task) {
+    this.tasks.push(task);
+    this.taskService.addTask(task).subscribe();
+    console.log('ADD TASK FROM TASK-BOARD');
+    console.log(task);
+  }
 }

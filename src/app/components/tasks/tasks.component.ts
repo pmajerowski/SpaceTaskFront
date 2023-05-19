@@ -25,10 +25,10 @@ export class TasksComponent implements OnInit {
         () => (this.tasks = this.tasks.filter((t) => t.id !== task.id)));
   }
 
-  addTask(task: Task) {
-    this.tasks.push(task);
-    this.taskService.addTask(task).subscribe();
-  }
+  // addTask(task: Task) {
+  //   this.tasks.push(task);
+  //   this.taskService.addTask(task).subscribe();
+  // }
 
   filterTasks(tasks: Task[]) {
     return tasks.filter(item => item.status === this.tasksFilter);
