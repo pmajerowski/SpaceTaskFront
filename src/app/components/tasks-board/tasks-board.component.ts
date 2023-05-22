@@ -1,4 +1,4 @@
-import {Component, Input, Output} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TaskStatus } from "../../TaskStatus";
 import {Task} from "../../Task";
 import {TaskService} from "../../services/task.service";
@@ -8,9 +8,10 @@ import {TaskService} from "../../services/task.service";
   templateUrl: './tasks-board.component.html',
   styleUrls: ['./tasks-board.component.css']
 })
-export class TasksBoardComponent {
+export class TasksBoardComponent implements OnInit {
   tasks: Task[] = [];
   @Input() tasksFilter!: TaskStatus;
+  @Output() tasksUpdated: EventEmitter<Task[]> = new EventEmitter<Task[]>();
 
   protected readonly TaskStatus = TaskStatus;
 
@@ -21,17 +22,36 @@ export class TasksBoardComponent {
   }
 
   addTask(task: Task) {
-    this.tasks.push(task);
-    this.taskService.addTask(task).subscribe();
-    this.filterTasks;
-    
+    this.taskService.addTask(task).subscribe(() => {
+      this.tasks = [...this.tasks, task];
+      this.tasksUpdated.emit(this.tasks);
+    });
   }
+  
+  
 
   filterTasks(tasks: Task[]) {
     return tasks.filter(item => item.status === this.tasksFilter);
   }
 
-  getTasks(): Task[] {
-    return this.tasks;
+  handleTasksUpdated(updatedTasks: Task[]) {
+    switch (this.tasksFilter) {
+      case TaskStatus.TO_DO:
+        this.tasks = this.filterTasksAdded(updatedTasks, TaskStatus.TO_DO);
+        break;
+      case TaskStatus.IN_PROGRESS:
+        this.tasks = this.filterTasksAdded(updatedTasks, TaskStatus.IN_PROGRESS);
+        break;
+      case TaskStatus.DONE:
+        this.tasks = this.filterTasksAdded(updatedTasks, TaskStatus.DONE);
+        break;
+      default:
+        break;
+    }
   }
+  
+  filterTasksAdded(tasks: Task[], filter: TaskStatus) {
+    return tasks.filter(item => item.status === filter);
+  }
+  
 }
