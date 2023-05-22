@@ -41,6 +41,7 @@ export class AddTaskComponent implements OnInit {
 
     this.name = '';
     this.description = '';
+    this.uiService.toggleAddTask();
   }
 
 }

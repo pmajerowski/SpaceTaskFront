@@ -23,6 +23,7 @@ export class TasksBoardComponent {
   addTask(task: Task) {
     this.tasks.push(task);
     this.taskService.addTask(task).subscribe();
+    this.filterTasks;
     
   }
 
