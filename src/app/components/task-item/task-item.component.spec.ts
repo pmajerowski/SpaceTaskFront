@@ -19,3 +19,4 @@ describe('TaskItemComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

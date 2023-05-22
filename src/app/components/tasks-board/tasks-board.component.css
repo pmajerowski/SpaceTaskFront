@@ -1,14 +1,22 @@
 .container-full {
   display: flex;
-  
+  height: 100%;
 }
 
 div {
   min-width: 30%;
+  height: 100%;
+  width: 100%;
 }
 
 .container {
+   height: 44em;
+   max-height: 44em;
+   width: 80%;
+  display: flex;
+  flex-direction: column;
   background-color: rgba(255, 255, 255, 0.8);
+  
 }
 
 .container h2 {
@@ -21,4 +29,3 @@ div {
   border-radius: 6px;
   
 }
-

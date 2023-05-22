@@ -1,14 +1,15 @@
 <div class="task">
     <h3>{{ task.name }} 
-        <fa-icon 
+        <!-- <fa-icon 
             (click)="onDelete(task)"
             [ngStyle]="{'color':'crimson'}" 
             [icon]="faTimes"
             >
-        </fa-icon>
+        </fa-icon> -->
+        <img src="/assets/pencil.png" alt="pencil" (click)="onDelete(task)">
     </h3>
     <p>{{ task.description }}</p> 
-    <div class="details">
+    <div id="details" class="details">
         <p>ON HOVER 1</p>
         <p>ON HOVER 2</p>
     </div>

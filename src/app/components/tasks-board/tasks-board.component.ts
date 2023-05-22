@@ -10,6 +10,7 @@ import {TaskService} from "../../services/task.service";
 })
 export class TasksBoardComponent {
   tasks: Task[] = [];
+  @Input() tasksFilter!: TaskStatus;
 
   protected readonly TaskStatus = TaskStatus;
 
@@ -22,7 +23,14 @@ export class TasksBoardComponent {
   addTask(task: Task) {
     this.tasks.push(task);
     this.taskService.addTask(task).subscribe();
-    console.log('ADD TASK FROM TASK-BOARD');
-    console.log(task);
+    
+  }
+
+  filterTasks(tasks: Task[]) {
+    return tasks.filter(item => item.status === this.tasksFilter);
+  }
+
+  getTasks(): Task[] {
+    return this.tasks;
   }
 }

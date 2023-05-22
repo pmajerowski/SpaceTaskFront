@@ -16,15 +16,19 @@ body {
 
 }
 
+html {
+  height: 100%;
+}
+
 .container {
   max-width: 500px;
   margin: 30px auto;
-  overflow: auto;
-  min-height: 300px;
+  /* overflow: auto; */
+  /* min-height: 300px; */
   border: 1px solid black;
   padding: 30px;
   border-radius: 10px;
-  height: auto;
+  /* height: 100%; */
   box-shadow: 14px 14px 8px rgba(0, 0, 0, 0.2);
 }
 .btn {
