@@ -28,6 +28,9 @@ export class TasksComponent implements OnChanges {
     });
   }
 
+  editTask(task: Task) {
+
+  }
 
   filterTasks(tasks: Task[]) {
     return tasks.filter(item => item.status === this.tasksFilter);

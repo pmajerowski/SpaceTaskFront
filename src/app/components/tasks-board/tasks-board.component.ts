@@ -25,7 +25,6 @@ export class TasksBoardComponent implements OnInit {
     this.taskService.addTask(task).subscribe(() => {
           this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
         });
-
   }
 
   filterTasks(tasks: Task[]) {
