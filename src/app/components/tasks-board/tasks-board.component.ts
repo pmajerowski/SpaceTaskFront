@@ -22,13 +22,10 @@ export class TasksBoardComponent implements OnInit {
   }
 
   addTask(task: Task) {
-    this.taskService.addTask(task).subscribe(() => {
-      this.tasks = [...this.tasks, task];
-      this.tasksUpdated.emit(this.tasks);
-    });
+    this.taskService.addTask(task).subscribe();
+    this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
   }
-  
-  
+
 
   filterTasks(tasks: Task[]) {
     return tasks.filter(item => item.status === this.tasksFilter);
@@ -49,9 +46,9 @@ export class TasksBoardComponent implements OnInit {
         break;
     }
   }
-  
+
   filterTasksAdded(tasks: Task[], filter: TaskStatus) {
     return tasks.filter(item => item.status === filter);
   }
-  
+
 }
