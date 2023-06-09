@@ -22,10 +22,11 @@ export class TasksBoardComponent implements OnInit {
   }
 
   addTask(task: Task) {
-    this.taskService.addTask(task).subscribe();
-    this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
-  }
+    this.taskService.addTask(task).subscribe(() => {
+          this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
+        });
 
+  }
 
   filterTasks(tasks: Task[]) {
     return tasks.filter(item => item.status === this.tasksFilter);
