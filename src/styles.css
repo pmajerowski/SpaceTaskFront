@@ -8,7 +8,8 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background-image: url('./assets/bckg.jpg');
+ /* background-image: url('./assets/bckg.jpg'); */
+    background: linear-gradient(#000, #003, #3f87a6);
     background-repeat: no-repeat;
     background-position: auto;
     background-size: 100%;
