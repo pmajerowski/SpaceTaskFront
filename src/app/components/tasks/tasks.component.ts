@@ -23,12 +23,6 @@ export class TasksComponent implements OnChanges {
   constructor(private taskService: TaskService) {}
 
   deleteTask(task: Task) {
-//     this.taskService.deleteTask(task).subscribe(() => {
-//       this.tasks = this.tasks.filter((t) => t.id !== task.id);
-//       this.tasksUpdated.emit(this.tasks);
-//     });
-    console.log(task);
-    console.log("KURCZACZEK");
     this.onEditTask.emit(task);
   }
 

@@ -44,6 +44,16 @@ html {
   text-decoration: none;
   font-size: 15px;
   font-family: inherit;
+    transition: transform 0.2s ease;
+
+
+    button:hover {
+      transform: scale(1.02);
+    }
+
+    button:active {
+      transform: scale(0.76);
+    }
 }
 .btn:focus {
   outline: none;

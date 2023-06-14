@@ -1,6 +1,6 @@
 
 <app-add-task (onAddTask)="addTask($event)"></app-add-task>
-<app-edit-task *ngIf="toggleEditTask"></app-edit-task>
+<app-edit-task *ngIf="toggleEditTask" (onToggleEditTask)="toggleEdit()"></app-edit-task>
 
 <div class="container-full">
   <div class="container">

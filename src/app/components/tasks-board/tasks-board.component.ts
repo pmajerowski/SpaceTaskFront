@@ -30,6 +30,10 @@ export class TasksBoardComponent implements OnInit {
 
   }
 
+  toggleEdit() {
+    this.toggleEditTask = !this.toggleEditTask;
+  }
+
   editTask(task: Task) {
     this.toggleEditTask = !this.toggleEditTask;
     this.taskEdit.emit(task);

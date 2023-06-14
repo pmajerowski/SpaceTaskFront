@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../Task';
 
 @Component({
@@ -7,6 +7,7 @@ import { Task } from '../../Task';
   styleUrls: ['./edit-task.component.css']
 })
 export class EditTaskComponent implements OnInit {
+    @Output() onToggleEditTask: EventEmitter<void> = new EventEmitter();
     @Input() task!: Task;
     name!: string;
     description!: string;
@@ -14,9 +15,14 @@ export class EditTaskComponent implements OnInit {
     onSubmit() {
     }
 
+    onToggle() {
+        this.onToggleEditTask.emit();
+    }
+
     editTask(tak: Task) {
      console.log(this.task);
     }
+
 
     ngOnInit() : void {
 
