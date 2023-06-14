@@ -20,9 +20,6 @@ export class EditTaskComponent implements OnInit {
         this.onToggleEditTask.emit();
     }
 
-    editTask(task: Task) {
-
-    }
 
     onDelete(task: Task) {
       console.log(task.id)

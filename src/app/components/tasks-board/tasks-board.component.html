@@ -13,7 +13,7 @@
     <app-tasks
       [tasksFilter]="TaskStatus.TO_DO"
       [tasks]="tasks"
-      (tasksUpdated)="handleTasksUpdated($event)"
+
       (onEditTask)="editTask($event)"
     ></app-tasks>
   </div>
@@ -24,7 +24,7 @@
     <app-tasks
       [tasksFilter]="TaskStatus.IN_PROGRESS"
       [tasks]="tasks"
-      (tasksUpdated)="handleTasksUpdated($event)"
+
       (onEditTask)="editTask($event)"
     ></app-tasks>
   </div>
@@ -35,7 +35,7 @@
     <app-tasks
       [tasksFilter]="TaskStatus.DONE"
       [tasks]="tasks"
-      (tasksUpdated)="handleTasksUpdated($event)"
+
       (onEditTask)="editTask($event)"
     ></app-tasks>
   </div>

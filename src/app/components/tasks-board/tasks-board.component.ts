@@ -29,7 +29,6 @@ export class TasksBoardComponent implements OnInit {
     this.taskService.addTask(task).subscribe(() => {
           this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
         });
-
   }
 
   toggleEdit() {
@@ -39,28 +38,27 @@ export class TasksBoardComponent implements OnInit {
   editTask(task: Task) {
     this.toggleEditTask = !this.toggleEditTask;
     this.currentlyEditedTask = task;
-//     this.taskEdit.emit(task);
   }
 
   filterTasks(tasks: Task[]) {
     return tasks.filter(item => item.status === this.tasksFilter);
   }
 
-  handleTasksUpdated(updatedTasks: Task[]) {
-    switch (this.tasksFilter) {
-      case TaskStatus.TO_DO:
-        this.tasks = this.filterTasksAdded(updatedTasks, TaskStatus.TO_DO);
-        break;
-      case TaskStatus.IN_PROGRESS:
-        this.tasks = this.filterTasksAdded(updatedTasks, TaskStatus.IN_PROGRESS);
-        break;
-      case TaskStatus.DONE:
-        this.tasks = this.filterTasksAdded(updatedTasks, TaskStatus.DONE);
-        break;
-      default:
-        break;
-    }
-  }
+//   handleTasksUpdated(updatedTasks: Task[]) {
+// //     switch (this.tasksFilter) {
+// //       case TaskStatus.TO_DO:
+// //         this.tasks = this.filterTasksAdded(updatedTasks, TaskStatus.TO_DO);
+// //         break;
+// //       case TaskStatus.IN_PROGRESS:
+// //         this.tasks = this.filterTasksAdded(updatedTasks, TaskStatus.IN_PROGRESS);
+// //         break;
+// //       case TaskStatus.DONE:
+// //         this.tasks = this.filterTasksAdded(updatedTasks, TaskStatus.DONE);
+// //         break;
+// //       default:
+// //         break;
+// //     }
+//   }
 
   filterTasksAdded(tasks: Task[], filter: TaskStatus) {
     return tasks.filter(item => item.status === filter);
