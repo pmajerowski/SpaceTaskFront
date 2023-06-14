@@ -22,9 +22,10 @@ export class TasksComponent implements OnChanges {
 
   constructor(private taskService: TaskService) {}
 
-  deleteTask(task: Task) {
+  editTask(task: Task) {
     this.onEditTask.emit(task);
   }
+
 
 
   filterTasks(tasks: Task[]) {

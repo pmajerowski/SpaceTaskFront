@@ -47,6 +47,15 @@ export class TasksBoardComponent implements OnInit {
     this.toggleEdit();
   }
 
+  deleteTask(task: Task) {
+    const confirmation = confirm("Are you sure you want to delete this task?");
+      if (confirmation) {
+        console.log(task);
+        this.taskService.deleteTask(task).subscribe();
+      }
+
+  }
+
   filterTasks(tasks: Task[]) {
     return tasks.filter(item => item.status === this.tasksFilter);
   }

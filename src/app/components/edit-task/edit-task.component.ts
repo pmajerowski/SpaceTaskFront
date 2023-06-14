@@ -10,6 +10,7 @@ export class EditTaskComponent implements OnInit {
     @Output() onToggleEditTask: EventEmitter<void> = new EventEmitter();
     @Input() task!: Task;
     @Output() onEditTask: EventEmitter<Task> = new EventEmitter();
+    @Output() onDeleteTask: EventEmitter<Task> = new EventEmitter();
     name!: string;
     description!: string;
     id!: string;
@@ -36,7 +37,7 @@ export class EditTaskComponent implements OnInit {
 
 
     onDelete(task: Task) {
-      console.log(task.id)
+      this.onDeleteTask.emit(task);
     }
 
 
