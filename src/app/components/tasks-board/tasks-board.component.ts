@@ -51,10 +51,10 @@ export class TasksBoardComponent implements OnInit {
     const confirmation = confirm("Are you sure you want to delete this task?");
       if (confirmation) {
         console.log(task);
-        this.taskService.deleteTask(task);
+        this.taskService.deleteTask(task).subscribe(() => {
+           this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
+         });
       }
-
-
   }
 
   filterTasks(tasks: Task[]) {
