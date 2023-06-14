@@ -1,22 +1,38 @@
 
 <app-add-task (onAddTask)="addTask($event)"></app-add-task>
+<app-edit-task *ngIf="toggleEditTask"></app-edit-task>
 
 <div class="container-full">
   <div class="container">
     <h2>to do</h2>
     <hr>
-    <app-tasks [tasksFilter]="TaskStatus.TO_DO"  [tasks]="tasks" (tasksUpdated)="handleTasksUpdated($event)"></app-tasks>
+    <app-tasks
+      [tasksFilter]="TaskStatus.TO_DO"
+      [tasks]="tasks"
+      (tasksUpdated)="handleTasksUpdated($event)"
+      (onEditTask)="editTask($event)"
+    ></app-tasks>
   </div>
 
   <div class="container">
     <h2>in progress</h2>
     <hr>
-    <app-tasks [tasksFilter]="TaskStatus.IN_PROGRESS"  [tasks]="tasks" (tasksUpdated)="handleTasksUpdated($event)"></app-tasks>
+    <app-tasks
+      [tasksFilter]="TaskStatus.IN_PROGRESS"
+      [tasks]="tasks"
+      (tasksUpdated)="handleTasksUpdated($event)"
+      (onEditTask)="editTask($event)"
+    ></app-tasks>
   </div>
 
   <div class="container">
     <h2>done</h2>
     <hr>
-    <app-tasks [tasksFilter]="TaskStatus.DONE"  [tasks]="tasks" (tasksUpdated)="handleTasksUpdated($event)"></app-tasks>
+    <app-tasks
+      [tasksFilter]="TaskStatus.DONE"
+      [tasks]="tasks"
+      (tasksUpdated)="handleTasksUpdated($event)"
+      (onEditTask)="editTask($event)"
+    ></app-tasks>
   </div>
 </div>
