@@ -20,13 +20,21 @@ export class EditTaskComponent implements OnInit {
         this.onToggleEditTask.emit();
     }
 
-    editTask(tak: Task) {
-     console.log(this.task);
+    editTask(task: Task) {
+
+    }
+
+    onDelete(task: Task) {
+      console.log(task.id)
     }
 
 
     ngOnInit() : void {
-
+      this.name = this.task.name;
+      this.description = this.task.description;
+      if (this.task.id) {
+        this.id = this.task.id;
+      }
     }
 
 }

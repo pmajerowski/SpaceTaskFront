@@ -9,7 +9,7 @@
 }
 
 .add-task-container {
-    background-color: rgba(255, 255, 255, 0.96);
+    background-color: rgba(255, 255, 255, 0.98);
     width: 550px;
     max-width: 40%;
     margin: 30px auto;
@@ -22,7 +22,7 @@
     box-shadow: 14px 14px 8px rgba(0, 0, 0, 0.2);
 
     position: absolute;
-    top: 25%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 9999;

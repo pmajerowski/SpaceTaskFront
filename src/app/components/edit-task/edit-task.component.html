@@ -8,7 +8,7 @@
         name="name"
         id="name"
         [(ngModel)]="name"
-        placeholder="g"
+        placeholder="Add task name"
       />
     </div>
     <div class="form-control">
@@ -27,11 +27,19 @@
            [(ngModel)]="id"/>
 
     <input type="submit" class="btn btn-block" value="Save task">
+
     <app-button
       class="btn-block"
       color="crimson"
       text="Cancel"
       (btnClick)="onToggle()">
+    </app-button>
+
+    <app-button
+      class="btn-block"
+      color="crimson"
+      text="Delete task"
+      (btnClick)="onDelete(task)">
     </app-button>
   </form>
 </div>
