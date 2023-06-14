@@ -21,12 +21,10 @@
         placeholder="Add description"
       />
     </div>
-    <!-- <div class="form-control">
-        <label for="date">due to</label>
-        <input type="date" name="date" id="date">
-
-        <input type="time" name="time" id="time">
-    </div> -->
+    <input type="hidden"
+           name="id"
+           id="id"
+           [(ngModel)]="id"/>
 
     <input type="submit" class="btn btn-block" value="Save task">
     <app-button

@@ -11,6 +11,7 @@ export class EditTaskComponent implements OnInit {
     @Input() task!: Task;
     name!: string;
     description!: string;
+    id!: string;
 
     onSubmit() {
     }
