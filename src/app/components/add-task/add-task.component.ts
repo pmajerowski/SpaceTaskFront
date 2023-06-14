@@ -30,7 +30,7 @@ export class AddTaskComponent implements OnInit {
       alert("Please insert task name!");
       return;
     }
-    
+
     const newTask: Task = {
       name: this.name,
       description: this.description,
@@ -41,6 +41,10 @@ export class AddTaskComponent implements OnInit {
 
     this.name = '';
     this.description = '';
+    this.uiService.toggleAddTask();
+  }
+
+  toggleAddTask() {
     this.uiService.toggleAddTask();
   }
 

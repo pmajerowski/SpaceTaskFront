@@ -1,1 +1,33 @@
-<p>edit-task works!</p>
+<div class="add-task-container">
+  <h2>edit task</h2>
+  <form  class="add-form" (ngSubmit)="onSubmit()">
+    <div class="form-control">
+      <label for="name"> name </label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        [(ngModel)]="name"
+        placeholder="g"
+      />
+    </div>
+    <div class="form-control">
+      <label for="description"> description </label>
+      <input
+        type="text"
+        name="description"
+        id="description"
+        [(ngModel)]="description"
+        placeholder="Add description"
+      />
+    </div>
+    <!-- <div class="form-control">
+        <label for="date">due to</label>
+        <input type="date" name="date" id="date">
+
+        <input type="time" name="time" id="time">
+    </div> -->
+
+    <input type="submit" class="btn btn-block" value="Save task">
+  </form>
+</div>

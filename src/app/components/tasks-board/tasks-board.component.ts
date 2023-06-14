@@ -12,6 +12,7 @@ export class TasksBoardComponent implements OnInit {
   tasks: Task[] = [];
   @Input() tasksFilter!: TaskStatus;
   @Output() tasksUpdated: EventEmitter<Task[]> = new EventEmitter<Task[]>();
+  @Output() taskEdit: EventEmitter<Task> = new EventEmitter();
   toggleEditTask: boolean = false;
 
   protected readonly TaskStatus = TaskStatus;
@@ -31,6 +32,7 @@ export class TasksBoardComponent implements OnInit {
 
   editTask(task: Task) {
     this.toggleEditTask = !this.toggleEditTask;
+    this.taskEdit.emit(task);
   }
 
   filterTasks(tasks: Task[]) {
