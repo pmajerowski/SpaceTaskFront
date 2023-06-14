@@ -14,6 +14,7 @@ export class EditTaskComponent implements OnInit {
     name!: string;
     description!: string;
     id!: string;
+    timestamp!: Date;
 
     onSubmit() {
       if (!this.name) {
@@ -25,7 +26,8 @@ export class EditTaskComponent implements OnInit {
             name: this.name,
             description: this.description,
             status: this.task.status,
-            id: this.task.id
+            id: this.task.id,
+            timestamp: this.task.timestamp
           };
 
       this.onEditTask.emit(taskToEdit);

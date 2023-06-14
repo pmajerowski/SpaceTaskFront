@@ -51,8 +51,9 @@ export class TasksBoardComponent implements OnInit {
     const confirmation = confirm("Are you sure you want to delete this task?");
       if (confirmation) {
         console.log(task);
-        this.taskService.deleteTask(task).subscribe();
+        this.taskService.deleteTask(task);
       }
+
 
   }
 

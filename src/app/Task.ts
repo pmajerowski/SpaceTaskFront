@@ -5,4 +5,5 @@ export interface Task {
     name: string;
     description: string;
     status: TaskStatus;
+    timestamp?: Date;
 }
