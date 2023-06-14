@@ -12,6 +12,7 @@ export class TasksComponent implements OnChanges {
   @Input() tasks: Task[] = [];
   @Input() tasksFilter!: TaskStatus;
   @Output() tasksUpdated: EventEmitter<Task[]> = new EventEmitter<Task[]>();
+  toggleEditTask: boolean = false;
 
   ngOnChanges(changes: SimpleChanges): void {
       this.tasks = this.filterTasks(changes['tasks'].currentValue);
@@ -22,10 +23,14 @@ export class TasksComponent implements OnChanges {
   constructor(private taskService: TaskService) {}
 
   deleteTask(task: Task) {
-    this.taskService.deleteTask(task).subscribe(() => {
-      this.tasks = this.tasks.filter((t) => t.id !== task.id);
-      this.tasksUpdated.emit(this.tasks);
-    });
+//     this.taskService.deleteTask(task).subscribe(() => {
+//       this.tasks = this.tasks.filter((t) => t.id !== task.id);
+//       this.tasksUpdated.emit(this.tasks);
+//     });
+    console.log(this.toggleEditTask);
+    console.log("KURCZACZEK");
+    this.toggleEditTask = !this.toggleEditTask;
+    console.log(this.toggleEditTask);
   }
 
 
