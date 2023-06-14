@@ -55,16 +55,9 @@ html {
       transform: scale(0.76);
     }
 }
-.btn:focus {
-  outline: none;
-}
+
 .btn:active {
   transform: scale(0.98);
-}
-
-.btn-block {
-  display: block;
-  width: 100%;
 }
 
 .form-control {

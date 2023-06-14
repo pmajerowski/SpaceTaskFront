@@ -4,6 +4,7 @@
   [task]="currentlyEditedTask"
   *ngIf="toggleEditTask"
   (onToggleEditTask)="toggleEdit()"
+  (onEditTask)="editTaskSubmit($event)"
 ></app-edit-task>
 
 <div class="container-full">

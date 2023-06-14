@@ -9,11 +9,25 @@ import { Task } from '../../Task';
 export class EditTaskComponent implements OnInit {
     @Output() onToggleEditTask: EventEmitter<void> = new EventEmitter();
     @Input() task!: Task;
+    @Output() onEditTask: EventEmitter<Task> = new EventEmitter();
     name!: string;
     description!: string;
     id!: string;
 
     onSubmit() {
+      if (!this.name) {
+            alert("Please insert task name!");
+            return;
+          }
+
+          const taskToEdit: Task = {
+            name: this.name,
+            description: this.description,
+            status: this.task.status,
+            id: this.task.id
+          };
+
+      this.onEditTask.emit(taskToEdit);
     }
 
     onToggle() {

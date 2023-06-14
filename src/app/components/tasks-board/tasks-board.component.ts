@@ -40,25 +40,17 @@ export class TasksBoardComponent implements OnInit {
     this.currentlyEditedTask = task;
   }
 
+  editTaskSubmit(task: Task) {
+    this.taskService.editTask(task).subscribe(() => {
+              this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
+            });
+    this.toggleEdit();
+  }
+
   filterTasks(tasks: Task[]) {
     return tasks.filter(item => item.status === this.tasksFilter);
   }
 
-//   handleTasksUpdated(updatedTasks: Task[]) {
-// //     switch (this.tasksFilter) {
-// //       case TaskStatus.TO_DO:
-// //         this.tasks = this.filterTasksAdded(updatedTasks, TaskStatus.TO_DO);
-// //         break;
-// //       case TaskStatus.IN_PROGRESS:
-// //         this.tasks = this.filterTasksAdded(updatedTasks, TaskStatus.IN_PROGRESS);
-// //         break;
-// //       case TaskStatus.DONE:
-// //         this.tasks = this.filterTasksAdded(updatedTasks, TaskStatus.DONE);
-// //         break;
-// //       default:
-// //         break;
-// //     }
-//   }
 
   filterTasksAdded(tasks: Task[], filter: TaskStatus) {
     return tasks.filter(item => item.status === filter);

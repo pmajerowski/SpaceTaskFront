@@ -29,6 +29,30 @@
 
 }
 
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.btn {
+   transition: transform 0.2s ease;
+   }
+
+  .btn:hover {
+    transform: scale(1.02);
+    background: crimson;
+  }
+
+  .btn:active {
+    transform: scale(0.83);
+  }
+
+.btn-save:hover {
+  background: mediumseagreen;
+  }
+
 input .btn:hover {
     color: red;
 }

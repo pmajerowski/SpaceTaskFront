@@ -22,12 +22,14 @@
             />
         </div>
 
-        <input type="submit" class="btn btn-block" value="Save task">
+      <div class="buttons">
+        <input type="submit" class="btn btn-save btn-block" value="Save task">
         <app-button
           class="btn-block"
-          color="{{ showAddTask ? 'crimson' : 'mediumseagreen' }}"
+          color="{{ showAddTask ? '#042157' : 'mediumseagreen' }}"
           text="Cancel"
           (btnClick)="toggleAddTask()">
         </app-button>
+      </div>
     </form>
 </div>
