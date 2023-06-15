@@ -1,8 +1,8 @@
 <div class="task">
-    <h3>{{ task.name }}
+    <h3>{{ task.name.length > 25 ? task.name.substring(0, 22) + '...' : task.name }}
         <img src="/assets/pencil.png" alt="pencil" (click)="onEdit(task)">
     </h3>
-    <p>{{ task.description }}</p>
+    <p>{{ task.description.length > 50 ? task.description.substring(0, 42) + '...' : task.description }}</p>
     <div id="details" class="details">
         <p>ON HOVER 1</p>
         <p>ON HOVER 2</p>
