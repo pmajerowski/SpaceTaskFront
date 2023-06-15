@@ -30,7 +30,7 @@
 }
 
 .task:hover {
-  background-color: gainsboro;
+  background-color: rgb(230, 230, 230);
   border: solid silver 0.1px;
 }
 
