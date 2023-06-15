@@ -3,13 +3,28 @@
     {{ isExpanded ? task.name : (task.name.length > 30 ? task.name.substring(0, 25) + '...' : task.name) }}
     <img src="/assets/pencil.png" alt="pencil" (click)="onEdit(task)">
   </h3>
-  <p [style.white-space]="'pre-line'">
+  <p class="description" [style.white-space]="'pre-line'">
     {{ isExpanded ? task.description : (task.description.length > 50 ? task.description.substring(0, 42) + '...' : task.description) }}
   </p>
   <div id="details" *ngIf="isExpanded" >
     <hr>
-    <button (click)="moveToToDo(task)" *ngIf="task.status !== toDo">TO DO</button>
-    <button (click)="moveToInProgress(task)" *ngIf="task.status !== inProgress">IN PROGRESS</button>
-    <button (click)="moveToDone(task)" *ngIf="task.status !== done">DONE</button>
+    <button
+      *ngIf="task.status !== toDo"
+      class="status_btn"
+      (click)="moveToToDo(task)"
+    >TO DO
+    </button>
+    <button
+      *ngIf="task.status !== inProgress"
+      class="status_btn"
+      (click)="moveToInProgress(task)"
+    >IN PROGRESS
+    </button>
+    <button
+      *ngIf="task.status !== done"
+      class="status_btn"
+      (click)="moveToDone(task)"
+    >DONE
+    </button>
   </div>
 </div>

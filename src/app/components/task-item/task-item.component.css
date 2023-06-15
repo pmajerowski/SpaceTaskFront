@@ -23,6 +23,10 @@
   transition: opacity 0.3s ease;
 }
 
+.description {
+  color: #3A4055;
+}
+
 .task:hover {
   background-color: gainsboro;
   border: solid silver 0.1px;
@@ -56,4 +60,31 @@ img:hover {
 .task.expanded: hover {
   background: pink;
 }
+
+.status_btn {
+  display: inline-block;
+    background: gray;
+    color: #fff;
+    border: none;
+    width: 90px;
+    padding: 4px 7px;
+    margin-top: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 11px;
+    font-family: inherit;
+    transition: transform 0.12s ease;
+}
+
+    .status_btn:hover {
+      transform: scale(1.02);
+      background: peru;
+    }
+
+    button:active {
+      transform: scale(0.76);
+    }
+
 

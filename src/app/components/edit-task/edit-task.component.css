@@ -9,7 +9,7 @@
 }
 
 .add-task-container {
-    background-color: rgba(255, 255, 255, 0.98);
+    background-color: rgba(248, 248, 249, 0.98);
     width: 550px;
     max-width: 40%;
     margin: 30px auto;
@@ -61,6 +61,6 @@ input .btn:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-left: 27px;
-  margin-right: 27px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
