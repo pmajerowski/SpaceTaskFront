@@ -1,11 +1,13 @@
 .task {
   background: #f8f8f8;
-  margin: 5px;
+  margin: 10px;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 10px;
   position: relative;
   overflow: hidden;
+  border: solid silver 0.1px;
+  box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.2);
 }
 
 .task.reminder {
@@ -28,7 +30,7 @@
 }
 
 .task:hover {
-  background-color: gainsboro;
+  background-color: rgb(230, 230, 230);
   border: solid silver 0.1px;
 }
 
@@ -76,6 +78,7 @@ img:hover {
     font-size: 11px;
     font-family: inherit;
     transition: transform 0.12s ease;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
     .status_btn:hover {
@@ -86,5 +89,58 @@ img:hover {
     button:active {
       transform: scale(0.76);
     }
+.date {
+  color: gray;
+}
 
+.details-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.buttons-container {
+  display: flex;
+  gap: 10px;
+}
+
+.date {
+  margin-left: auto;
+  font-size: small;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  font-size: x-small;
+  visibility: hidden;
+  width: 90px;
+  background-color: grey;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 0;
+  opacity: 0;
+  transition: opacity 0.27s ease;
+  pointer-events: none;
+
+  position: absolute;
+  z-index: 1;
+  top: 2px;
+  right: 105%;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transition-delay: 0.4s;
+}
+
+hr {
+  margin-top: 10px;
+}

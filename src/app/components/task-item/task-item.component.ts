@@ -15,6 +15,7 @@ export class TaskItemComponent {
   @Output() onMoveToToDo: EventEmitter<Task> = new EventEmitter();
   @Output() onMoveToDone: EventEmitter<Task> = new EventEmitter();
 
+  shortDate!: string;
   toDo: TaskStatus = TaskStatus.TO_DO;
   inProgress: TaskStatus = TaskStatus.IN_PROGRESS;
   done: TaskStatus = TaskStatus.DONE;
@@ -30,6 +31,11 @@ export class TaskItemComponent {
 
   toggleExpand() {
     this.isExpanded = !this.isExpanded;
+    if (this.task.timestamp) {
+          this.shortDate = new Date(this.task.timestamp).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+
+        }
+        console.log(this.shortDate)
   }
 
   moveToInProgress(task: Task) {
