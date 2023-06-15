@@ -7,7 +7,7 @@
     {{ isExpanded ? task.description : (task.description.length > 50 ? task.description.substring(0, 42) + '...' : task.description) }}
   </p>
   <div id="details" *ngIf="isExpanded">
-    <p>ON HOVER 1</p>
-    <p>ON HOVER 2</p>
+    <p>IN PROGRESS</p>
+    <p>DONE</p>
   </div>
 </div>
