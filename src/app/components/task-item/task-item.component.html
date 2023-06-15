@@ -6,25 +6,33 @@
   <p class="description" [style.white-space]="'pre-line'">
     {{ isExpanded ? task.description : (task.description.length > 50 ? task.description.substring(0, 42) + '...' : task.description) }}
   </p>
-  <div id="details" *ngIf="isExpanded" >
-    <hr>
-    <button
-      *ngIf="task.status !== toDo"
-      class="status_btn"
-      (click)="moveToToDo(task)"
-    >TO DO
-    </button>
-    <button
-      *ngIf="task.status !== inProgress"
-      class="status_btn"
-      (click)="moveToInProgress(task)"
-    >IN PROGRESS
-    </button>
-    <button
-      *ngIf="task.status !== done"
-      class="status_btn"
-      (click)="moveToDone(task)"
-    >DONE
-    </button>
+  <hr *ngIf="isExpanded">
+  <div id="details" *ngIf="isExpanded" class="details-container">
+    <div class="buttons-container">
+      <button
+        *ngIf="task.status !== toDo"
+        class="status_btn"
+        (click)="moveToToDo(task)"
+      >TO DO
+      </button>
+      <button
+        *ngIf="task.status !== inProgress"
+        class="status_btn"
+        (click)="moveToInProgress(task)"
+      >IN PROGRESS
+      </button>
+      <button
+        *ngIf="task.status !== done"
+        class="status_btn"
+        (click)="moveToDone(task)"
+      >DONE
+      </button>
+    </div>
+    <div class="tooltip">
+      <span class="date">
+        {{ shortDate }}
+      </span>
+      <span class="tooltiptext">ADDED ON:</span>
+    </div>
   </div>
 </div>
