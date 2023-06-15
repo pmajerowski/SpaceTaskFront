@@ -13,14 +13,18 @@ export class TasksComponent implements OnChanges {
   @Input() tasksFilter!: TaskStatus;
   @Output() tasksUpdated: EventEmitter<Task[]> = new EventEmitter<Task[]>();
   @Output() onEditTask: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output() onMoveToInProgress: EventEmitter<Task> = new EventEmitter<Task>();
+
+  constructor(private taskService: TaskService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
       this.tasks = this.filterTasks(changes['tasks'].currentValue);
       this.tasksUpdated.emit(this.tasks);
-
   }
 
-  constructor(private taskService: TaskService) {}
+  moveToInProgress(task: Task) {
+    this.onMoveToInProgress.emit(task);
+  }
 
   editTask(task: Task) {
     this.onEditTask.emit(task);

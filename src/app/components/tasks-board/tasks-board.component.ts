@@ -16,7 +16,6 @@ export class TasksBoardComponent implements OnInit {
   toggleEditTask: boolean = false;
   currentlyEditedTask!: Task;
 
-
   protected readonly TaskStatus = TaskStatus;
 
   constructor(private taskService: TaskService) {}
@@ -41,7 +40,6 @@ export class TasksBoardComponent implements OnInit {
   }
 
   editTaskSubmit(task: Task) {
-    console.log("SUBSCRIBE FROM EDIT WITH PUT METHOD")
     this.taskService.editTask(task).subscribe(() => {
               this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
             });
@@ -57,6 +55,19 @@ export class TasksBoardComponent implements OnInit {
          });
          this.toggleEdit();
       }
+  }
+
+  moveToInProgressFunction(task: Task) {
+    const editedTask: Task = {
+          id: task.id,
+          name: task.name,
+          description: task.description,
+          status: TaskStatus.IN_PROGRESS,
+          timestamp: task.timestamp
+        };
+    this.taskService.editTask(editedTask).subscribe(() => {
+                  this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
+                });
   }
 
   filterTasks(tasks: Task[]) {

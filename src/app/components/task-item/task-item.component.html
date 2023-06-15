@@ -6,9 +6,10 @@
   <p [style.white-space]="'pre-line'">
     {{ isExpanded ? task.description : (task.description.length > 50 ? task.description.substring(0, 42) + '...' : task.description) }}
   </p>
-  <div id="details" *ngIf="isExpanded">
+  <div id="details" *ngIf="isExpanded" >
     <hr>
-    <p>IN PROGRESS</p>
-    <p>DONE</p>
+    <button  *ngIf="task.status !== toDo">TO DO</button>
+    <button (click)="moveToInProgress(task)" *ngIf="task.status !== inProgress">IN PROGRESS</button>
+    <button *ngIf="task.status !== done">DONE</button>
   </div>
 </div>
