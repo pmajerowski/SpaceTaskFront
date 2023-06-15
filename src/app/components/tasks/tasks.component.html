@@ -2,5 +2,7 @@
     *ngFor="let task of tasks"
     [task]="task"
     (onMoveToInProgress)="moveToInProgress($event)"
+    (onMoveToToDo)="moveToToDo($event)"
+    (onMoveToDone)="moveToDone($event)"
     (onEditTask)="editTask($event)"
 ></app-task-item>

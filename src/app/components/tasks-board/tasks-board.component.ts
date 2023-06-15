@@ -58,17 +58,16 @@ export class TasksBoardComponent implements OnInit {
   }
 
   moveToInProgressFunction(task: Task) {
-    const editedTask: Task = {
-          id: task.id,
-          name: task.name,
-          description: task.description,
-          status: TaskStatus.IN_PROGRESS,
-          timestamp: task.timestamp
-        };
-    this.taskService.editTask(editedTask).subscribe(() => {
-                  this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
-                });
+    this.changeStatus(task, TaskStatus.IN_PROGRESS);
   }
+
+  moveToToDoFunction(task: Task) {
+    this.changeStatus(task, TaskStatus.TO_DO);
+  }
+
+  moveToDoneFunction(task: Task) {
+      this.changeStatus(task, TaskStatus.DONE);
+    }
 
   filterTasks(tasks: Task[]) {
     return tasks.filter(item => item.status === this.tasksFilter);
@@ -77,6 +76,19 @@ export class TasksBoardComponent implements OnInit {
 
   filterTasksAdded(tasks: Task[], filter: TaskStatus) {
     return tasks.filter(item => item.status === filter);
+  }
+
+  changeStatus(task: Task, taskStatus: TaskStatus) {
+    const editedTask: Task = {
+              id: task.id,
+              name: task.name,
+              description: task.description,
+              status: taskStatus,
+              timestamp: task.timestamp
+            };
+        this.taskService.editTask(editedTask).subscribe(() => {
+                      this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
+                    });
   }
 
 }
