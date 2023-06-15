@@ -12,39 +12,45 @@
   <div class="container">
     <h2>to do</h2>
     <hr>
-    <app-tasks
-      [tasksFilter]="TaskStatus.TO_DO"
-      [tasks]="tasks"
-      (onEditTask)="editTask($event)"
-      (onMoveToInProgress)="moveToInProgressFunction($event)"
-      (onMoveToToDo)="moveToToDoFunction($event)"
-      (onMoveToDone)="moveToDoneFunction($event)"
-    ></app-tasks>
+    <div class="container_tasks">
+      <app-tasks
+        [tasksFilter]="TaskStatus.TO_DO"
+        [tasks]="tasks"
+        (onEditTask)="editTask($event)"
+        (onMoveToInProgress)="moveToInProgressFunction($event)"
+        (onMoveToToDo)="moveToToDoFunction($event)"
+        (onMoveToDone)="moveToDoneFunction($event)"
+      ></app-tasks>
+    </div>
   </div>
 
   <div class="container">
     <h2>in progress</h2>
     <hr>
-    <app-tasks
-      [tasksFilter]="TaskStatus.IN_PROGRESS"
-      [tasks]="tasks"
-      (onEditTask)="editTask($event)"
-      (onMoveToInProgress)="moveToInProgressFunction($event)"
-      (onMoveToToDo)="moveToToDoFunction($event)"
-      (onMoveToDone)="moveToDoneFunction($event)"
-    ></app-tasks>
+    <div class="container_tasks">
+      <app-tasks
+        [tasksFilter]="TaskStatus.IN_PROGRESS"
+        [tasks]="tasks"
+        (onEditTask)="editTask($event)"
+        (onMoveToInProgress)="moveToInProgressFunction($event)"
+        (onMoveToToDo)="moveToToDoFunction($event)"
+        (onMoveToDone)="moveToDoneFunction($event)"
+      ></app-tasks>
+    </div>
   </div>
 
   <div class="container">
     <h2>done</h2>
     <hr>
-    <app-tasks
-      [tasksFilter]="TaskStatus.DONE"
-      [tasks]="tasks"
-      (onEditTask)="editTask($event)"
-      (onMoveToInProgress)="moveToInProgressFunction($event)"
-      (onMoveToToDo)="moveToToDoFunction($event)"
-      (onMoveToDone)="moveToDoneFunction($event)"
-    ></app-tasks>
+    <div class="container_tasks">
+      <app-tasks
+        [tasksFilter]="TaskStatus.DONE"
+        [tasks]="tasks"
+        (onEditTask)="editTask($event)"
+        (onMoveToInProgress)="moveToInProgressFunction($event)"
+        (onMoveToToDo)="moveToToDoFunction($event)"
+        (onMoveToDone)="moveToDoneFunction($event)"
+      ></app-tasks>
+    </div>
   </div>
 </div>
