@@ -3,31 +3,36 @@
     <form  class="add-form" (ngSubmit)="onSubmit()">
         <div class="form-control">
             <label for="name"> name </label>
-            <input 
-                type="text" 
-                name="name" 
-                id="name" 
-                [(ngModel)]="name" 
-                placeholder="Add task name" 
+            <input
+                type="text"
+                name="name"
+                id="name"
+                [(ngModel)]="name"
+                placeholder="add task name"
+                maxlength="40"
             />
         </div>
         <div class="form-control">
-            <label for="description"> description </label>
-            <input  
-                type="text" 
-                name="description" 
-                id="description" 
-                [(ngModel)]="description"
-                placeholder="Add description" 
-            />
+          <label for="description">description</label>
+          <textarea
+            name="description"
+            id="description"
+            [(ngModel)]="description"
+            placeholder="add description"
+            rows="2"
+            style="resize: vertical;"
+            maxlength="340"
+          ></textarea>
         </div>
-        <!-- <div class="form-control">
-            <label for="date">due to</label>
-            <input type="date" name="date" id="date">
-            
-            <input type="time" name="time" id="time">
-        </div> -->
 
-        <input type="submit" class="btn btn-block" value="Save task">
+      <div class="buttons">
+        <input type="submit" class="btn btn-save btn-block" value="Save task">
+        <app-button
+          class="btn-block"
+          color="{{ showAddTask ? '#042157' : 'mediumseagreen' }}"
+          text="Cancel"
+          (btnClick)="toggleAddTask()">
+        </app-button>
+      </div>
     </form>
 </div>

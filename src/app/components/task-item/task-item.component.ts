@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import {Task} from '../../Task';
-import {faTimes} from '@fortawesome/free-solid-svg-icons';
+import { Component, Input, Output, EventEmitter, ElementRef, HostListener } from '@angular/core';
+import { Task } from '../../Task';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { TaskStatus } from '../../TaskStatus';
 
 @Component({
   selector: 'app-task-item',
@@ -8,22 +9,33 @@ import {faTimes} from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./task-item.component.css']
 })
 export class TaskItemComponent {
-
   @Input() task!: Task;
-  @Output() onDeleteTask: EventEmitter<Task> = new EventEmitter();
+  @Output() onEditTask: EventEmitter<Task> = new EventEmitter();
+  @Output() onMoveToInProgress: EventEmitter<Task> = new EventEmitter();
+  toDo: TaskStatus = TaskStatus.TO_DO;
+  inProgress: TaskStatus = TaskStatus.IN_PROGRESS;
+  done: TaskStatus = TaskStatus.DONE;
+  isExpanded: boolean = false;
   faTimes = faTimes;
 
-  constructor() {}
+  constructor(private elementRef: ElementRef) { }
 
-  onDelete(task: Task) {
-    const confirmation = confirm("Are you sure you want to delete this entry?");
-  if (confirmation) {
-    this.onDeleteTask.emit(task);
-  }
-    
+  onEdit(task: Task) {
+    this.onEditTask.emit(task);
   }
 
-  ngOnInit() : void {}
+  toggleExpand() {
+    this.isExpanded = !this.isExpanded;
+  }
+
+  moveToInProgress(task: Task) {
+    this.onMoveToInProgress.emit(task);
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClick(event: MouseEvent) {
+    if (!this.elementRef.nativeElement.contains(event.target)) {
+      this.isExpanded = false;
+    }
+  }
 }
-
-

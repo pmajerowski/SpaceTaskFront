@@ -12,22 +12,23 @@ export class TasksComponent implements OnChanges {
   @Input() tasks: Task[] = [];
   @Input() tasksFilter!: TaskStatus;
   @Output() tasksUpdated: EventEmitter<Task[]> = new EventEmitter<Task[]>();
+  @Output() onEditTask: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output() onMoveToInProgress: EventEmitter<Task> = new EventEmitter<Task>();
+
+  constructor(private taskService: TaskService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
       this.tasks = this.filterTasks(changes['tasks'].currentValue);
       this.tasksUpdated.emit(this.tasks);
-
   }
 
-  constructor(private taskService: TaskService) {}
-
-  deleteTask(task: Task) {
-    this.taskService.deleteTask(task).subscribe(() => {
-      this.tasks = this.tasks.filter((t) => t.id !== task.id);
-      this.tasksUpdated.emit(this.tasks);
-    });
+  moveToInProgress(task: Task) {
+    this.onMoveToInProgress.emit(task);
   }
 
+  editTask(task: Task) {
+    this.onEditTask.emit(task);
+  }
 
   filterTasks(tasks: Task[]) {
     return tasks.filter(item => item.status === this.tasksFilter);

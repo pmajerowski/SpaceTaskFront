@@ -21,7 +21,7 @@
     height: auto;
     box-shadow: 24px 114px 118px 18px rgba(0, 0, 15, 0.6);
 
-    position: fixed;
+    position: absolute;
     top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -35,7 +35,6 @@
   max-width: 400px;
   margin: 0 auto;
 }
-
 
 .btn {
    transition: transform 0.2s ease;
@@ -56,4 +55,12 @@
 
 input .btn:hover {
     color: red;
+}
+
+.upline h2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 27px;
+  margin-right: 27px;
 }

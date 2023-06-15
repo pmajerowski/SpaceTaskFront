@@ -12,6 +12,7 @@ import { TaskItemComponent } from './components/task-item/task-item.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { TasksBoardComponent } from './components/tasks-board/tasks-board.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { EditTaskComponent } from './components/edit-task/edit-task.component';
 
 const appRoutes: Routes = [
   {path: '', component: TasksComponent}
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
     AddTaskComponent,
     TasksBoardComponent,
     FooterComponent,
+    EditTaskComponent,
 
   ],
   imports: [

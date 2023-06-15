@@ -1,11 +1,11 @@
 button {
-    transition: transform 0.2s ease; 
+    transition: transform 0.2s ease;
   }
-  
+
   button:hover {
-    transform: scale(1.06); 
+    transform: scale(1.02);
   }
 
   button:active {
-    transform: scale(0.76); 
+    transform: scale(0.83);
   }

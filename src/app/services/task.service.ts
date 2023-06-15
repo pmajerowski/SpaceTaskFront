@@ -22,12 +22,17 @@ export class TaskService {
     return this.http.get<Task[]>(url)
   }
 
-  deleteTask(task: Task): Observable<Task> {
-    const url = `${this.apiUrl}?taskId=${task.id}`;
-    return this.http.delete<Task>(url);
-  }
+  deleteTask(task: Task): Observable<void> {
+      const url = `${this.apiUrl}?taskId=${task.id}`;
+      console.log(url);
+      return this.http.delete<void>(url);
+    }
 
   addTask(task: Task): Observable<Task> {
     return this.http.post<Task>(this.apiUrl, task, httpOptions);
+  }
+
+  editTask(task: Task): Observable<Task> {
+    return this.http.put<Task>(this.apiUrl, task, httpOptions);
   }
 }
