@@ -11,9 +11,12 @@ import { TaskStatus } from '../../TaskStatus';
 export class TasksComponent implements OnChanges {
   @Input() tasks: Task[] = [];
   @Input() tasksFilter!: TaskStatus;
+
   @Output() tasksUpdated: EventEmitter<Task[]> = new EventEmitter<Task[]>();
   @Output() onEditTask: EventEmitter<Task> = new EventEmitter<Task>();
   @Output() onMoveToInProgress: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output() onMoveToToDo: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output() onMoveToDone: EventEmitter<Task> = new EventEmitter<Task>();
 
   constructor(private taskService: TaskService) {}
 
@@ -24,6 +27,14 @@ export class TasksComponent implements OnChanges {
 
   moveToInProgress(task: Task) {
     this.onMoveToInProgress.emit(task);
+  }
+
+  moveToToDo(task: Task) {
+    this.onMoveToToDo.emit(task);
+  }
+
+  moveToDone(task: Task) {
+    this.onMoveToDone.emit(task);
   }
 
   editTask(task: Task) {

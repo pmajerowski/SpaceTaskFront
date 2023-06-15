@@ -8,8 +8,8 @@
   </p>
   <div id="details" *ngIf="isExpanded" >
     <hr>
-    <button  *ngIf="task.status !== toDo">TO DO</button>
+    <button (click)="moveToToDo(task)" *ngIf="task.status !== toDo">TO DO</button>
     <button (click)="moveToInProgress(task)" *ngIf="task.status !== inProgress">IN PROGRESS</button>
-    <button *ngIf="task.status !== done">DONE</button>
+    <button (click)="moveToDone(task)" *ngIf="task.status !== done">DONE</button>
   </div>
 </div>
