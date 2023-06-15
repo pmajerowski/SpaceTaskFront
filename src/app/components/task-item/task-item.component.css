@@ -1,5 +1,5 @@
 .task {
-  background: #f9f9f9;
+  background: #f8f8f8;
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
@@ -24,7 +24,8 @@
 }
 
 .task:hover {
-  background-color: #f1f1f1;
+  background-color: gainsboro;
+  border: solid silver 0.1px;
 }
 
 .details.active {
@@ -45,5 +46,14 @@ img {
 
 img:hover {
   transform: scale(1.3);
+}
+
+.expanded {
+  background: white;
+  border: solid silver 0.1px;
+}
+
+.task.expanded: hover {
+  background: pink;
 }
 

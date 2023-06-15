@@ -1,6 +1,6 @@
 <div class="task" (click)="toggleExpand()" [class.expanded]="isExpanded">
   <h3 >
-    {{ isExpanded ? task.name : (task.name.length > 25 ? task.name.substring(0, 22) + '...' : task.name) }}
+    {{ isExpanded ? task.name : (task.name.length > 30 ? task.name.substring(0, 25) + '...' : task.name) }}
     <img src="/assets/pencil.png" alt="pencil" (click)="onEdit(task)">
   </h3>
   <p [style.white-space]="'pre-line'">
