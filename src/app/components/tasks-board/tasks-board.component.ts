@@ -41,6 +41,7 @@ export class TasksBoardComponent implements OnInit {
   }
 
   editTaskSubmit(task: Task) {
+    console.log("SUBSCRIBE FROM EDIT WITH PUT METHOD")
     this.taskService.editTask(task).subscribe(() => {
               this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
             });
@@ -54,6 +55,7 @@ export class TasksBoardComponent implements OnInit {
         this.taskService.deleteTask(task).subscribe(() => {
            this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
          });
+         this.toggleEdit();
       }
   }
 

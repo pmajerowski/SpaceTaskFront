@@ -1,5 +1,17 @@
 <div class="add-task-container">
-  <h2>edit task</h2>
+  <div class="upline">
+  <h2>edit task
+    <app-button
+      id="delete"
+      class="btn-block"
+      type="button"
+      color="crimson"
+      text="Delete task"
+      (btnClick)="onDelete(task)">
+    </app-button>
+  </h2>
+  </div>
+
   <form  class="add-form" (ngSubmit)="onSubmit()">
     <div class="form-control">
       <label for="name"> name </label>
@@ -32,21 +44,18 @@
            [(ngModel)]="timestamp"/>
 
     <div class="buttons">
-      <input type="submit" class="btn btn-save btn-block" value="Save task">
+    <input type="submit" id="submit" class="btn btn-save btn-block" value="Save task">
 
-      <app-button
-        class="btn-block"
-        color="#042157"
-        text="Cancel"
-        (btnClick)="onToggle()">
-      </app-button>
+    <app-button
+      id="cancel"
+      class="btn-block"
+      color="#042157"
+      type="button"
+      text="Cancel"
+      (btnClick)="onToggle()">
+    </app-button>
 
-      <app-button
-        class="btn-block"
-        color="crimson"
-        text="Delete task"
-        (btnClick)="onDelete(task)">
-      </app-button>
     </div>
   </form>
+
 </div>

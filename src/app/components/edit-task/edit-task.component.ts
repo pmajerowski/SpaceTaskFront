@@ -8,9 +8,9 @@ import { Task } from '../../Task';
 })
 export class EditTaskComponent implements OnInit {
     @Output() onToggleEditTask: EventEmitter<void> = new EventEmitter();
-    @Input() task!: Task;
     @Output() onEditTask: EventEmitter<Task> = new EventEmitter();
     @Output() onDeleteTask: EventEmitter<Task> = new EventEmitter();
+    @Input() task!: Task;
     name!: string;
     description!: string;
     id!: string;
