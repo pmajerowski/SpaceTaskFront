@@ -13,15 +13,16 @@
             />
         </div>
         <div class="form-control">
-            <label for="description"> description </label>
-            <input
-                type="text"
-                name="description"
-                id="description"
-                [(ngModel)]="description"
-                placeholder="Add description"
-                maxlength="120"
-            />
+          <label for="description">Description</label>
+          <textarea
+            name="description"
+            id="description"
+            [(ngModel)]="description"
+            placeholder="Add description"
+            rows="2"
+            style="resize: vertical;"
+            maxlength="240"
+          ></textarea>
         </div>
 
       <div class="buttons">

@@ -8,7 +8,7 @@ import {faTimes} from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./task-item.component.css']
 })
 export class TaskItemComponent {
-
+  isExpanded: boolean = false;
   @Input() task!: Task;
   @Output() onEditTask: EventEmitter<Task> = new EventEmitter();
   faTimes = faTimes;
@@ -18,6 +18,10 @@ export class TaskItemComponent {
   onEdit(task: Task) {
     this.onEditTask.emit(task);
   }
+
+  toggleExpand() {
+          this.isExpanded = !this.isExpanded;
+      }
 
   ngOnInit() : void {}
 }

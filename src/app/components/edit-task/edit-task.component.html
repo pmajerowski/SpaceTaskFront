@@ -25,15 +25,16 @@
       />
     </div>
     <div class="form-control">
-      <label for="description"> description </label>
-      <input
-        type="text"
+      <label for="description">Description</label>
+      <textarea
         name="description"
         id="description"
         [(ngModel)]="description"
         placeholder="Add description"
-        maxlength="120"
-      />
+        rows="2"
+        style="resize: vertical;"
+        maxlength="240"
+      ></textarea>
     </div>
     <input type="hidden"
            name="id"
