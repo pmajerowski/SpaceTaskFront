@@ -1,4 +1,4 @@
-
-<app-header title="SpaceTask"></app-header>
-<app-tasks-board></app-tasks-board>
-<app-footer></app-footer>
+<app-login *ngIf="!userAuthenticated"></app-login>
+<app-header title="SpaceTask" *ngIf="userAuthenticated"></app-header>
+<app-tasks-board *ngIf="userAuthenticated"></app-tasks-board>
+<app-footer *ngIf="userAuthenticated"></app-footer>
