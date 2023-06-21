@@ -19,10 +19,11 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   authenticate(): Observable<string> {
-      const auth = this.http.post<string>(
-          this.authUrl,
-          "{\"email\" : \"user@user.com\", \"password\" : \"password\"}"
-          );
-      return auth;
+      const body = {
+        email: 'user@user.com',
+        password: 'password'
+      };
+
+      return this.http.post<string>(this.authUrl, body);
     }
 }
