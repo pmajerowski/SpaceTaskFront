@@ -1,4 +1,4 @@
-<app-login *ngIf="!userAuthenticated"></app-login>
-<app-header title="SpaceTask" *ngIf="userAuthenticated"></app-header>
-<app-tasks-board *ngIf="userAuthenticated"></app-tasks-board>
-<app-footer *ngIf="userAuthenticated"></app-footer>
+<app-login *ngIf="!isAuthenticated"></app-login>
+<app-header title="SpaceTask" *ngIf="isAuthenticated"></app-header>
+<app-tasks-board *ngIf="isAuthenticated"></app-tasks-board>
+<app-footer *ngIf="isAuthenticated"></app-footer>

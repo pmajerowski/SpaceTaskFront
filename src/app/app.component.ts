@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from './services/auth.service'
 
 
 @Component({
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    userAuthenticated: boolean = false;
+    isAuthenticated: boolean = false;
+
+    constructor(private authService: AuthService) { }
 
     ngOnInit() : void {
+      this.authService.authenticate().subscribe(
+            (result) => {
 
-        }
+              console.log('Is Authenticated:', this.isAuthenticated);
+            },
+            (error) => {
+              console.error('Authentication Error:', error);
+            }
+      );
+    }
+
 }

@@ -11,14 +11,18 @@ const httpOptions = {
 
 @Injectable({
   providedIn: 'root'
-});
+})
 
 export class AuthService {
   private authUrl = 'http://localhost:8080/authenticate';
 
   constructor(private http: HttpClient) { }
 
-  isAuthenticated(): boolean {
-    return this.http.get<Task[]>(authUrl);
-  }
+  authenticate(): Observable<string> {
+      const auth = this.http.post<string>(
+          this.authUrl,
+          "{\"email\" : \"user@user.com\", \"password\" : \"password\"}"
+          );
+      return auth;
+    }
 }
