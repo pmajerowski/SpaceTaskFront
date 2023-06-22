@@ -1,13 +1,22 @@
 import { Injectable } from '@angular/core';
+import {AuthenticationRequest} from '../AuthenticationRequest';
+import {AuthenticationResponse} from '../AuthenticationResponse';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginServiceService {
+  authUrl: string = "http://localhost:8080/authenticate";
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  signInCallBack(): void {
-    console.log("SIGN IN CALL BACK");
+  signIn(email: string, password: string): Observable<AuthenticationResponse> {
+    const body: AuthenticationRequest = {
+          email: email,
+          password: password
+        };
+
+    return this.http.post<string>(this.authUrl, body);
   }
 }

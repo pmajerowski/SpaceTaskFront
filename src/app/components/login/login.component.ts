@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginServiceService } from "../../services/login-service.service";
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,10 @@ export class LoginComponent {
   email !: string;
   password !: string;
 
+  constructor(private loginService: LoginServiceService) { }
+
   onSubmit() {
-    console.log("LOG IN")
+    console.log(this.email + " " + this.password);
+    this.loginService.signIn(this.email, this.password).subscribe((resp) => { console.log(resp) });
   }
 }
