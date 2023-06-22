@@ -11,13 +11,14 @@ export class HeaderComponent {
   @Input() title!: string;
   showAddTask: boolean = false;
   subscription!: Subscription;
+  loggedIn: boolean = false;
 
   constructor(private uiService: UiService) {
     this.subscription = this.uiService
       .onToggle()
       .subscribe((value) => (this.showAddTask = value));
   };
-  
+
   toggleAddTask() {
     this.uiService.toggleAddTask();
   }
