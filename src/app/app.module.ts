@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpInterceptor } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -14,8 +14,9 @@ import { TasksBoardComponent } from './components/tasks-board/tasks-board.compon
 import { FooterComponent } from './components/footer/footer.component';
 import { EditTaskComponent } from './components/edit-task/edit-task.component';
 
+
 const appRoutes: Routes = [
-  {path: '', component: TasksComponent}
+  {path: '', component: TasksComponent},
 ]
 
 @NgModule({
