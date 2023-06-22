@@ -23,7 +23,6 @@ export class AppComponent {
   }
 
   handleLogout() {
-  console.log("LOGOUTTTTTTTTTTTTTTTTTTTTTT")
     this.localStorage.remove('jwt-token');
 
     if (this.localStorage.get('jwt-token') == null ) {

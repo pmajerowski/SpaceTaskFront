@@ -9,9 +9,11 @@ import { Subscription } from 'rxjs';
 })
 export class HeaderComponent {
   @Input() title!: string;
+  @Input() loggedIn!: boolean;
+
   showAddTask: boolean = false;
   subscription!: Subscription;
-  loggedIn: boolean = false;
+
 
   constructor(private uiService: UiService) {
     this.subscription = this.uiService
