@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {AuthenticationRequest} from '../AuthenticationRequest';
 import {AuthenticationResponse} from '../AuthenticationResponse';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs'
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,6 @@ export class LoginServiceService {
           password: password
         };
 
-    return this.http.post<string>(this.authUrl, body);
+    return this.http.post<AuthenticationResponse>(this.authUrl, body);
   }
 }
