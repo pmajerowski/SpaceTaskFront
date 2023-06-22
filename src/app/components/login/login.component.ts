@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LoginServiceService } from "../../services/login-service.service";
+import { LocalStorageService } from "../../services/local-storage.service";
 
 @Component({
   selector: 'app-login',
@@ -10,10 +11,13 @@ export class LoginComponent {
   email !: string;
   password !: string;
 
-  constructor(private loginService: LoginServiceService) { }
+  constructor(private loginService: LoginServiceService, private localStorage: LocalStorageService) { }
 
   onSubmit() {
-    console.log(this.email + " " + this.password);
-    this.loginService.signIn(this.email, this.password).subscribe((resp) => { console.log(resp) });
+    this.loginService.signIn(this.email, this.password)
+        .subscribe((resp) => {
+              console.log(resp.token);
+              this.localStorage.set('jwt-token', resp.token);
+          });
   }
 }
