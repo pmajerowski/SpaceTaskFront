@@ -5,3 +5,21 @@
 div {
   min-width: 30%;
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-element {
+  /* Additional styles for the left element if needed */
+}
+
+.right-element {
+  /* Additional styles for the right element if needed */
+}
+
+
+
+

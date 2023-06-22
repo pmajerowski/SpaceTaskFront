@@ -1,4 +1,17 @@
-<app-header title="SpaceTask"></app-header>
+<div class="navbar">
+  <div class="left-element">
+    <app-header title="SpaceTask"></app-header>
+  </div>
+  <div class="right-element">
+    <app-button
+      *ngIf="logged"
+      color="deepskyblue"
+      text="Logout"
+      (btnClick)="handleLogout()">
+    </app-button>
+  </div>
+</div>
+
 <app-login (loggedIn)="handleLogin($event)" *ngIf="!logged"></app-login>
 <app-tasks-board *ngIf="logged"></app-tasks-board>
 <app-footer *ngIf="logged"></app-footer>

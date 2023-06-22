@@ -21,4 +21,14 @@ export class AppComponent {
   handleLogin(value: boolean) {
       this.logged = value;
   }
+
+  handleLogout() {
+  console.log("LOGOUTTTTTTTTTTTTTTTTTTTTTT")
+    this.localStorage.remove('jwt-token');
+
+    if (this.localStorage.get('jwt-token') == null ) {
+      this.logged = !this.logged;
+    }
+
+  }
 }
