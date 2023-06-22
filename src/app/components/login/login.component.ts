@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { LoginServiceService } from "../../services/login-service.service";
 import { LocalStorageService } from "../../services/local-storage.service";
 
@@ -10,14 +10,15 @@ import { LocalStorageService } from "../../services/local-storage.service";
 export class LoginComponent {
   email !: string;
   password !: string;
+  @Output() loggedIn = new EventEmitter<boolean>();
 
   constructor(private loginService: LoginServiceService, private localStorage: LocalStorageService) { }
 
   onSubmit() {
     this.loginService.signIn(this.email, this.password)
-        .subscribe((resp) => {
-              console.log(resp.token);
-              this.localStorage.set('jwt-token', resp.token);
+        .subscribe((response) => {
+              this.localStorage.set('jwt-token', response.token);
+              this.loggedIn.emit(true);
           });
   }
 }
