@@ -12,10 +12,10 @@ export class AppComponent {
   constructor(private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
-//     const token = this.localStorage.get('jwt-token');
-//     if(token !== null) {
-//         this.logged = true;
-//     }
+    const token = this.localStorage.get('jwt-token');
+    if(token !== null) {
+        this.logged = true;
+    }
   }
 
   handleLogin(value: boolean) {

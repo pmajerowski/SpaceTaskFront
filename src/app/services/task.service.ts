@@ -1,51 +1,45 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs'
-import {Task} from '../Task';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Task } from '../Task';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LocalStorageService } from './local-storage.service';
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-  }),
-};
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
-  private apiUrl = 'http://localhost:8080/tasks'
+  private apiUrl = 'http://localhost:8080/tasks';
+  private httpOptions: { headers: HttpHeaders };
 
-  constructor(private http: HttpClient, private localStorage: LocalStorageService) { }
+  constructor(private http: HttpClient, private localStorage: LocalStorageService) {
+    this.httpOptions = {
+      headers: this.getHeadersWithAuthorization()
+    };
+  }
 
   getTasks(): Observable<Task[]> {
-      const url = `${this.apiUrl}/all`;
-      const headers = this.createHeaders();
-
-      return this.http.get<Task[]>(url, { headers });
-    }
+    const url = `${this.apiUrl}/all`;
+    return this.http.get<Task[]>(url, this.httpOptions);
+  }
 
   deleteTask(task: Task): Observable<void> {
-      const url = `${this.apiUrl}?taskId=${task.id}`;
-      console.log(url);
-      return this.http.delete<void>(url);
-    }
+    const url = `${this.apiUrl}?taskId=${task.id}`;
+    return this.http.delete<void>(url, this.httpOptions);
+  }
 
   addTask(task: Task): Observable<Task> {
-    return this.http.post<Task>(this.apiUrl, task, httpOptions);
+    return this.http.post<Task>(this.apiUrl, task, this.httpOptions);
   }
 
   editTask(task: Task): Observable<Task> {
-    return this.http.put<Task>(this.apiUrl, task, httpOptions);
+    return this.http.put<Task>(this.apiUrl, task, this.httpOptions);
   }
 
-  private createHeaders(): HttpHeaders {
-      const token = this.localStorage.get('jwt-token');
-      const headers = new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      });
-      return headers;
-    }
-
+  private getHeadersWithAuthorization(): HttpHeaders {
+    const token = this.localStorage.get('jwt-token');
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+  }
 }
