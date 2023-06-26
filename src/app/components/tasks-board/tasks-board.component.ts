@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, AfterViewInit } from '@angular/core';
 import { TaskStatus } from "../../TaskStatus";
 import {Task} from "../../Task";
 import {TaskService} from "../../services/task.service";
@@ -8,7 +8,7 @@ import {TaskService} from "../../services/task.service";
   templateUrl: './tasks-board.component.html',
   styleUrls: ['./tasks-board.component.css']
 })
-export class TasksBoardComponent implements OnInit {
+export class TasksBoardComponent implements AfterViewInit {
   tasks: Task[] = [];
   @Input() tasksFilter!: TaskStatus;
   @Output() tasksUpdated: EventEmitter<Task[]> = new EventEmitter<Task[]>();
@@ -20,7 +20,13 @@ export class TasksBoardComponent implements OnInit {
 
   constructor(private taskService: TaskService) {}
 
-  ngOnInit(): void {
+  ngAfterViewInit() {
+    console.log("AFTER VIEW INIT FROM TASKS BOARD")
+    this.loadTasks();
+  }
+
+  private loadTasks(): void {
+    console.log("LOAD TASKS FROM TASKS BOARD")
     this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
   }
 
@@ -49,7 +55,6 @@ export class TasksBoardComponent implements OnInit {
   deleteTask(task: Task) {
     const confirmation = confirm("Are you sure you want to delete this task?");
       if (confirmation) {
-        console.log(task);
         this.taskService.deleteTask(task).subscribe(() => {
            this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
          });

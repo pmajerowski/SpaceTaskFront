@@ -18,7 +18,6 @@ export class LoginComponent {
     this.loginService.signIn(this.email, this.password)
         .subscribe((response) => {
               this.localStorage.set('jwt-token', response.token);
-              console.log(response.token);
               this.loggedIn.emit(true);
           });
   }
