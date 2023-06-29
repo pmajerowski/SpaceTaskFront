@@ -1,0 +1,37 @@
+<div class="add-task-container">
+  <form (ngSubmit)="onSubmit()">
+    <h3>Sign in</h3>
+    <div class="form-control">
+      <label for="email"> email </label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        [(ngModel)]="email"
+        placeholder="your@email.net"
+        maxlength="40"
+      />
+    </div>
+    <div class="form-control">
+      <label for="password">password</label>
+      <input
+        name="password"
+        type="password"
+        id="password"
+        [(ngModel)]="password"
+        placeholder="password"
+      />
+    </div>
+
+    <div class="buttons">
+      <input type="submit" class="btn btn-save btn-block" value="Sign in">
+      <app-button
+        class="btn-block"
+        color="#042157"
+        text="Cancel"
+        >
+      </app-button>
+    </div>
+
+  </form>
+</div>

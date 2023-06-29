@@ -9,15 +9,18 @@ import { Subscription } from 'rxjs';
 })
 export class HeaderComponent {
   @Input() title!: string;
+  @Input() loggedIn!: boolean;
+
   showAddTask: boolean = false;
   subscription!: Subscription;
+
 
   constructor(private uiService: UiService) {
     this.subscription = this.uiService
       .onToggle()
       .subscribe((value) => (this.showAddTask = value));
   };
-  
+
   toggleAddTask() {
     this.uiService.toggleAddTask();
   }
