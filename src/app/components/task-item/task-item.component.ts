@@ -32,10 +32,9 @@ export class TaskItemComponent {
   toggleExpand() {
     this.isExpanded = !this.isExpanded;
     if (this.task.timestamp) {
-          this.shortDate = new Date(this.task.timestamp).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-
+          this.shortDate = new Date(this.task.timestamp)
+                .toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
         }
-        console.log(this.shortDate)
   }
 
   moveToInProgress(task: Task) {
