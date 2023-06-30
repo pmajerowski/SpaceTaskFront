@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-register',
@@ -9,14 +9,15 @@ export class RegisterComponent {
   email?: string;
   password?: string;
   name?: string;
+  @Output() hideRegister = new EventEmitter<void>();
 
 
   onSubmit(event: Event) {
-    console.log("SUBMIT FROM REGISTER")
+
   }
 
   toggleRegister() {
-    console.log("TOGGLE REGISTER FROM REGISTER")
+    this.hideRegister.emit();
   }
 
 }

@@ -28,8 +28,11 @@ export class AppComponent implements OnInit {
   }
 
   showRegisterForm() {
-    console.log("SHOW REGISTER FORM FROM APP_COMPONENT");
     this.registerForm = true;
+  }
+
+  hideRegisterForm() {
+    this.registerForm = false;
   }
 
   private checkToken() {
