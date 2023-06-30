@@ -8,6 +8,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+  emailFocused: boolean = false;
+  passwordFocused: boolean = false;
   email!: string;
   password!: string;
   name!: string;

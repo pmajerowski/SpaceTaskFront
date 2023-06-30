@@ -131,11 +131,11 @@ input {
 .validation-icon::before {
   font-family: "Font Awesome 5 Free";
   content: "\f00c"; /* Unicode for tick icon */
-  color: lime;
+  color: limegreen;
 }
 
 .validation-icon.fa-times::before {
   content: "\f00d"; /* Unicode for times icon */
-  color: red;
+  color: crimson;
 }
 
