@@ -10,6 +10,7 @@ import { TasksBoardComponent } from './components/tasks-board/tasks-board.compon
 })
 export class AppComponent implements OnInit {
   logged!: boolean;
+  registerForm: boolean = false;
 
   constructor(private localStorage: LocalStorageService) {}
 
@@ -24,6 +25,11 @@ export class AppComponent implements OnInit {
   handleLogout() {
     this.localStorage.remove('jwt-token');
     this.logged = false;
+  }
+
+  showRegisterForm() {
+    console.log("SHOW REGISTER FORM FROM APP_COMPONENT");
+    this.registerForm = true;
   }
 
   private checkToken() {

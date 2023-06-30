@@ -12,6 +12,7 @@ export class LoginComponent {
   password !: string;
   error: string = ''
   @Output() loggedIn = new EventEmitter<boolean>();
+  @Output() register: EventEmitter<any> = new EventEmitter();
 
   constructor(private loginService: LoginServiceService, private localStorage: LocalStorageService) { }
 
@@ -34,8 +35,8 @@ export class LoginComponent {
     }
 
   toggleRegister() {
-
     console.log("REGISTER")
+    this.register.emit();
   }
 
 }

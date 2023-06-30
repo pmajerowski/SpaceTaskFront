@@ -14,6 +14,7 @@ import { TasksBoardComponent } from './components/tasks-board/tasks-board.compon
 import { FooterComponent } from './components/footer/footer.component';
 import { EditTaskComponent } from './components/edit-task/edit-task.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 const appRoutes: Routes = [
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
     FooterComponent,
     EditTaskComponent,
     LoginComponent,
+    RegisterComponent,
 
   ],
   imports: [
