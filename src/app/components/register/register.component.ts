@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { RegisterService } from "../../services/register.service";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -10,9 +11,16 @@ export class RegisterComponent {
   email!: string;
   password!: string;
   name!: string;
+  registerForm!: FormGroup;
   @Output() hideRegister = new EventEmitter<void>();
 
-  constructor(private registerService: RegisterService) { }
+  constructor(private registerService: RegisterService, private formBuilder: FormBuilder) {
+      this.registerForm = this.formBuilder.group({
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(8)]],
+        name: ['']
+      });
+    }
 
 
   onSubmit(event: Event) {

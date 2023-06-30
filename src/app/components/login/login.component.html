@@ -1,6 +1,6 @@
 <div class="add-task-container">
 
-  <form (ngSubmit)="onSubmit($event)" class="add-form">
+  <form (ngSubmit)="onSubmit($event)" class="add-form" >
 
     <h3 class="head">
       <span>Sign in to SpaceTask </span>
@@ -19,6 +19,7 @@
         maxlength="40"
         required
         autofocus
+
       />
     </div>
     <div class="form-control">
@@ -31,6 +32,8 @@
         [(ngModel)]="password"
         placeholder="password"
         required
+        minlength="8"
+
       />
     </div>
     <div class="error-message" *ngIf="error">{{ error }}</div>

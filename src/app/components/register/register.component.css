@@ -5,6 +5,10 @@
     padding-right: 0px;
 }
 
+.form-control {
+position: relative;
+}
+
 img {
   width:20px;
 
@@ -110,4 +114,28 @@ input .btn:hover {
     text-align: center;
     padding-bottom: 12px;
   }
+
+input {
+  padding-right: 30px; /* Add space for the validation icon */
+}
+
+.validation-icon {
+  position: absolute;
+  top: 50%;
+  right: 4px;
+
+  transform: translateY(-50%);
+  font-size: 1em;
+}
+
+.validation-icon::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f00c"; /* Unicode for tick icon */
+  color: lime;
+}
+
+.validation-icon.fa-times::before {
+  content: "\f00d"; /* Unicode for times icon */
+  color: red;
+}
 

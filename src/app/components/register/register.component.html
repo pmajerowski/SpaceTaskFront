@@ -1,13 +1,12 @@
 <div class="add-task-container">
 
-  <form (ngSubmit)="onSubmit($event)" class="add-form">
+  <form (ngSubmit)="onSubmit($event)" class="add-form" #registerForm="ngForm">
 
     <h3 class="head">
       <span>Join SpaceTask today! </span>
     </h3>
 
     <div class="form-control">
-
       <input
         type="email"
         name="email"
@@ -17,10 +16,13 @@
         maxlength="40"
         required
         autofocus
+        #emailInput="ngModel"
+        [ngClass]="{ 'valid': emailInput.valid && emailInput.dirty, 'invalid': emailInput.invalid && emailInput.dirty }"
       />
+      <span class="validation-icon" [ngClass]="{ 'fa-check': emailInput.valid, 'fa-times': emailInput.invalid && emailInput.dirty }"></span>
     </div>
-    <div class="form-control">
 
+    <div class="form-control">
       <input
         name="password"
         type="password"
@@ -29,7 +31,11 @@
         placeholder="password"
         required
         minlength="8"
+        #passwordInput="ngModel"
+        [ngClass]="{ 'valid': passwordInput.valid && passwordInput.dirty, 'invalid': passwordInput.invalid && passwordInput.dirty }"
       />
+      <span class="validation-icon" [ngClass]="{ 'fa-check': passwordInput.valid, 'fa-times': passwordInput.invalid && passwordInput.dirty }"></span>
+    </div>
 
       <div class="form-control">
       <input
@@ -42,11 +48,11 @@
       />
       </div>
 
-    </div>
+
 <!--    <div class="error-message" *ngIf="error">{{ error }}</div>-->
 
     <div class="buttons">
-      <button type="submit" class="btn btn-save" >Sign up</button>
+      <button type="submit" class="btn btn-save" [disabled]="registerForm.invalid">Sign up</button>
     </div>
 
     <div class="right">
