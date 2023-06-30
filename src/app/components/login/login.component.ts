@@ -39,4 +39,8 @@ export class LoginComponent {
     this.register.emit();
   }
 
+  clearError() {
+      this.error = '';
+    }
+
 }

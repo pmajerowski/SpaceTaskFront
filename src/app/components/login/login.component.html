@@ -10,6 +10,7 @@
     <div class="form-control">
 
       <input
+        (input)="clearError()"
         type="email"
         name="email"
         id="email"
@@ -23,6 +24,7 @@
     <div class="form-control">
 
       <input
+        (input)="clearError()"
         name="password"
         type="password"
         id="password"
@@ -39,7 +41,7 @@
 
     <div class="right">
       <p >You don't have an account?</p>
-      <a href="#" (click)="toggleRegister()">Register</a>
+      <a href="#" (click)="toggleRegister(); clearError()">Register</a>
     </div>
 
   </form>
