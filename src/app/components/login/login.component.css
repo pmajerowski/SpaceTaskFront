@@ -94,3 +94,12 @@ input .btn:hover {
      padding-left:10px;
   }
 
+  .error-message {
+    color: red;
+    letter-spacing: .05rem;
+    font-size: small;
+    position: relative;
+    text-align: center;
+    padding-bottom: 12px;
+  }
+

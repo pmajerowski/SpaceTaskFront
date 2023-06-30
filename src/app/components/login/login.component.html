@@ -24,9 +24,10 @@
         id="password"
         [(ngModel)]="password"
         placeholder="password"
+        required
       />
     </div>
-
+    <div class="error-message" *ngIf="error">{{ error }}</div>
 
     <div class="buttons">
       <button type="submit" class="btn btn-save" >Sign in</button>
