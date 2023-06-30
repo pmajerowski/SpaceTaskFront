@@ -2,10 +2,22 @@
     margin-bottom: 10px;
     margin-left: 9px;
     width: 95%;
+    padding-right: 0px;
 }
 
+img {
+  width:20px;
+  position: relative;
+  left: 48%;
+}
 .add-form label {
-    margin-left: 7px;
+    margin-left: 8px;
+}
+
+.head h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .add-task-container {
@@ -28,19 +40,21 @@
     z-index: 9999;
 }
 
-.add-task-container h2 {
-  margin-left: 20px;
+.add-task-container h3 {
+  margin-left: 10px;
 }
 
 .buttons {
   display: flex;
-  justify-content: space-between;
-  max-width: 400px;
+  justify-content: center;
+
   margin: 0 auto;
 }
 
 
 .btn {
+  margin-left: 10px;
+    width: 100%;
    transition: transform 0.2s ease;
    }
 
@@ -53,6 +67,10 @@
     transform: scale(0.83);
   }
 
+  .btn-save {
+    background: #3a79da;
+    }
+
 .btn-save:hover {
   background: mediumseagreen;
   }
@@ -60,3 +78,19 @@
 input .btn:hover {
     color: red;
 }
+
+ .right {
+    display: flex;
+    margin-top: 20px;
+    color: dimgrey;
+    text-align: right;
+    font-size: small;
+    padding-left: 10px;
+}
+
+
+  a {
+
+     padding-left:10px;
+  }
+

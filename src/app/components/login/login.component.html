@@ -1,8 +1,10 @@
 <div class="add-task-container">
-  <form (ngSubmit)="onSubmit()">
-    <h3>Sign in</h3>
+
+  <form (ngSubmit)="onSubmit($event)" class="add-form">
+
+    <h3 class="head">Sign in to SpaceTask <img src="/assets/rocket.svg" alt="rocket"></h3>
     <div class="form-control">
-      <label for="email"> email </label>
+
       <input
         type="email"
         name="email"
@@ -10,10 +12,12 @@
         [(ngModel)]="email"
         placeholder="your@email.net"
         maxlength="40"
+        required
+        autofocus
       />
     </div>
     <div class="form-control">
-      <label for="password">password</label>
+
       <input
         name="password"
         type="password"
@@ -23,14 +27,14 @@
       />
     </div>
 
+
     <div class="buttons">
-      <input type="submit" class="btn btn-save btn-block" value="Sign in">
-      <app-button
-        class="btn-block"
-        color="#042157"
-        text="Cancel"
-        >
-      </app-button>
+      <button type="submit" class="btn btn-save" >Sign in</button>
+    </div>
+
+    <div class="right">
+      <p >You don't have an account?</p>
+      <a href="#" (click)="toggleRegister()">Register</a>
     </div>
 
   </form>

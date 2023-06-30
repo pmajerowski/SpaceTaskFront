@@ -14,11 +14,18 @@ export class LoginComponent {
 
   constructor(private loginService: LoginServiceService, private localStorage: LocalStorageService) { }
 
-  onSubmit() {
-    this.loginService.signIn(this.email, this.password)
+  onSubmit(event: Event) {
+      event.preventDefault();
+      this.loginService.signIn(this.email, this.password)
         .subscribe((response) => {
               this.localStorage.set('jwt-token', response.token);
               this.loggedIn.emit(true);
           });
   }
+
+  toggleRegister() {
+
+    console.log("REGISTER")
+  }
+
 }
