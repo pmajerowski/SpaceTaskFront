@@ -1,1 +1,58 @@
-<p>register works!</p>
+<div class="add-task-container">
+
+  <form (ngSubmit)="onSubmit($event)" class="add-form">
+
+    <h3 class="head">
+      <span>Join SpaceTask today! </span>
+    </h3>
+
+    <div class="form-control">
+
+      <input
+        type="email"
+        name="email"
+        id="email"
+        [(ngModel)]="email"
+        placeholder="your@email.net"
+        maxlength="40"
+        required
+        autofocus
+      />
+    </div>
+    <div class="form-control">
+
+      <input
+        name="password"
+        type="password"
+        id="password"
+        [(ngModel)]="password"
+        placeholder="password"
+        required
+        minlength="8"
+      />
+
+      <div class="form-control">
+      <input
+        name="name"
+        type="text"
+        id="name"
+        [(ngModel)]="name"
+        placeholder="Your name"
+        maxlength="40"
+      />
+      </div>
+
+    </div>
+<!--    <div class="error-message" *ngIf="error">{{ error }}</div>-->
+
+    <div class="buttons">
+      <button type="submit" class="btn btn-save" >Sign up</button>
+    </div>
+
+    <div class="right">
+      <p >Already have an account?</p>
+      <a href="#" (click)="toggleRegister()">Sign in</a>
+    </div>
+
+  </form>
+</div>

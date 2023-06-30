@@ -7,8 +7,7 @@
 
 img {
   width:20px;
-  position: relative;
-  left: 48%;
+
 }
 .add-form label {
     margin-left: 8px;
@@ -17,7 +16,12 @@ img {
 .head h3 {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+
+h3 span {
+  font-size: larger;
+
 }
 
 .add-task-container {
@@ -90,8 +94,12 @@ input .btn:hover {
 
 
   a {
-
+    color: deepskyblue;
      padding-left:10px;
+  }
+
+  a:hover {
+    text-decoration: none;
   }
 
   .error-message {

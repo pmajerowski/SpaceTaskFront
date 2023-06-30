@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+  email?: string;
+  password?: string;
+  name?: string;
+
+
+  onSubmit(event: Event) {
+    console.log("SUBMIT FROM REGISTER")
+  }
+
+  toggleRegister() {
+    console.log("TOGGLE REGISTER FROM REGISTER")
+  }
 
 }
