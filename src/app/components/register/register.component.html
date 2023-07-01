@@ -1,6 +1,6 @@
 <div class="add-task-container">
 
-  <form (ngSubmit)="onSubmit($event)" class="add-form" #registerForm="ngForm">
+  <form (ngSubmit)="onSubmit($event)" class="add-form" #registerForm="ngForm" >
 
     <h3 class="head">
       <span>Join SpaceTask today! </span>
@@ -18,13 +18,14 @@
         required
         autofocus
         #emailInput="ngModel"
-        [ngClass]="{ 'valid': emailInput.valid && emailFocused, 'invalid': emailInput.invalid && emailFocused }"
+        pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
         (focus)="emailFocused = true"
         (blur)="emailFocused = false"
+        (input)="clearError()"
       />
       <span
         class="validation-icon"
-        [ngClass]="{ 'fa-check': emailInput.valid && emailFocused, 'fa-times': emailInput.invalid && emailFocused }"
+        [ngClass]="{ 'fa-solid fa-check': emailInput.valid && emailFocused, 'fa-solid fa-times': emailInput.invalid && emailFocused }"
         *ngIf="emailFocused"
       ></span>
     </div>
@@ -34,23 +35,26 @@
         name="password"
         type="password"
         id="password"
+        password
         [(ngModel)]="password"
         placeholder="password"
-        required
         minlength="8"
+        required
         #passwordInput="ngModel"
+        pattern="[8,]"
         [ngClass]="{ 'valid': passwordInput.valid && passwordFocused, 'invalid': passwordInput.invalid && passwordFocused }"
         (focus)="passwordFocused = true"
         (blur)="passwordFocused = false"
+        (input)="clearError()"
       />
       <span
         class="validation-icon"
-        [ngClass]="{ 'fa-check': passwordInput.valid && passwordFocused, 'fa-times': passwordInput.invalid && passwordFocused }"
+        [ngClass]="{ 'fa-solid fa-check': passwordInput.valid && passwordFocused, 'fa-solid fa-times': passwordInput.invalid && passwordFocused }"
         *ngIf="passwordFocused"
       ></span>
     </div>
 
-      <div class="form-control">
+    <div class="form-control">
       <input
         name="name"
         type="text"
@@ -59,13 +63,13 @@
         placeholder="Your name"
         maxlength="40"
       />
-      </div>
+    </div>
 
-
-<!--    <div class="error-message" *ngIf="error">{{ error }}</div>-->
+    <div class="error-message" *ngIf="emailError"> {{ emailError }} </div>
+    <div class="error-message" *ngIf="passwordError"> {{ passwordError }} </div>
 
     <div class="buttons">
-      <button type="submit" class="btn btn-save" [disabled]="registerForm.invalid">Sign up</button>
+      <button type="submit" class="btn btn-save" >Sign up</button>
     </div>
 
     <div class="right">

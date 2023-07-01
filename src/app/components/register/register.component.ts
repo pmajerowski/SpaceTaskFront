@@ -1,31 +1,42 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { RegisterService } from "../../services/register.service";
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent {
   emailFocused: boolean = false;
   passwordFocused: boolean = false;
   email!: string;
   password!: string;
   name!: string;
-  registerForm!: FormGroup;
   @Output() hideRegister = new EventEmitter<void>();
+  emailError: string = '';
+  passwordError: string = '';
 
-  constructor(private registerService: RegisterService, private formBuilder: FormBuilder) {
-      this.registerForm = this.formBuilder.group({
-        email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required, Validators.minLength(8)]],
-        name: ['']
-      });
+  constructor(private registerService: RegisterService) {
+
     }
 
-
   onSubmit(event: Event) {
+
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const isValidEmail = emailPattern.test(this.email);
+
+    if (!isValidEmail) {
+        this.emailError = 'Invalid email address.';
+        return;
+    }
+
+    if (this.password.length < 8 || typeof this.password === 'undefined') {
+        this.passwordError = 'Password should be at least 8 characters long.';
+        return;
+    }
+
     this.registerService.signUp(this.email, this.password, this.name)
             .subscribe(
               (response) => {
@@ -41,6 +52,11 @@ export class RegisterComponent {
               }
             );
   }
+
+  clearError() {
+        this.emailError = '';
+        this.passwordError = '';
+    }
 
   toggleRegister() {
     this.hideRegister.emit();

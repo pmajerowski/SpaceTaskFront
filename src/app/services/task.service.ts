@@ -18,7 +18,6 @@ export class TaskService {
   }
 
   getTasks(): Observable<Task[]> {
-    console.log("GET TASKS FROM SERVICE")
     const url = `${this.apiUrl}/all`;
     return this.http.get<Task[]>(url, this.httpOptions);
   }

@@ -7,13 +7,13 @@ import { Subscription } from 'rxjs';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
 export class HeaderComponent {
   @Input() title!: string;
   @Input() loggedIn!: boolean;
 
   showAddTask: boolean = false;
   subscription!: Subscription;
-
 
   constructor(private uiService: UiService) {
     this.subscription = this.uiService

@@ -21,12 +21,10 @@ export class TasksBoardComponent implements AfterViewInit {
   constructor(private taskService: TaskService) {}
 
   ngAfterViewInit() {
-    console.log("AFTER VIEW INIT FROM TASKS BOARD")
     this.loadTasks();
   }
 
   private loadTasks(): void {
-    console.log("LOAD TASKS FROM TASKS BOARD")
     this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
   }
 

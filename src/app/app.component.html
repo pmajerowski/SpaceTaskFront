@@ -17,4 +17,4 @@
 <app-login (loggedIn)="handleLogin($event)" *ngIf="!logged" (register)="showRegisterForm()"></app-login>
 <app-register *ngIf="registerForm" (hideRegister)="hideRegisterForm()"></app-register>
 <app-tasks-board *ngIf="logged"></app-tasks-board>
-<app-footer *ngIf="logged"></app-footer>
+<app-footer ></app-footer>

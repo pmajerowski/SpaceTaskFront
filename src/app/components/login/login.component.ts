@@ -26,21 +26,20 @@ export class LoginComponent {
           },
           (error) => {
             if (error.status === 403) {
-              this.error = 'Invalid email or password.'; // Update the error message
+              this.error = 'Invalid email or password.';
             } else {
-              this.error = 'An error occurred. Please try again.'; // Generic error message
+              this.error = 'An error occurred. Please try again.';
             }
           }
         );
     }
 
   toggleRegister() {
-    console.log("REGISTER")
     this.register.emit();
   }
 
   clearError() {
       this.error = '';
-    }
+  }
 
 }

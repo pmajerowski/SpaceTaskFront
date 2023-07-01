@@ -60,54 +60,55 @@ h3 span {
   margin-left: 10px;
     width: 100%;
    transition: transform 0.2s ease;
-   }
+ }
 
-  .btn:hover {
-    transform: scale(1.02);
-    background: crimson;
+.btn:hover {
+  transform: scale(1.02);
+  background: crimson;
+}
+
+.btn:active {
+  transform: scale(0.83);
+}
+
+.btn-save {
+  background: #3a79da;
   }
-
-  .btn:active {
-    transform: scale(0.83);
-  }
-
-  .btn-save {
-    background: #3a79da;
-    }
 
 .btn-save:hover {
-  background: mediumseagreen;
-  }
+background: mediumseagreen;
+}
 
 input .btn:hover {
     color: red;
 }
 
- .right {
-    display: flex;
-    margin-top: 20px;
-    color: dimgrey;
-    text-align: right;
-    font-size: small;
-    padding-left: 10px;
+.right {
+  display: flex;
+  margin-top: 20px;
+  color: dimgrey;
+  text-align: right;
+  font-size: 0.85rem;
+  padding-left: 10px;
 }
 
 
-  a {
-    color: deepskyblue;
-     padding-left:10px;
-  }
+a {
+  color: deepskyblue;
+   padding-left:10px;
+   letter-spacing: .08rem;
+}
 
-  a:hover {
-    text-decoration: none;
-  }
+a:hover {
+  text-decoration: none;
+}
 
-  .error-message {
-    color: red;
-    letter-spacing: .05rem;
-    font-size: small;
-    position: relative;
-    text-align: center;
-    padding-bottom: 12px;
-  }
+.error-message {
+  color: red;
+  letter-spacing: .05rem;
+  font-size: small;
+  position: relative;
+  padding-left:15px;
+  padding-bottom: 12px;
+}
 
