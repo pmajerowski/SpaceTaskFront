@@ -35,13 +35,11 @@
         name="password"
         type="password"
         id="password"
-        password
         [(ngModel)]="password"
         placeholder="password"
         minlength="8"
         required
         #passwordInput="ngModel"
-        pattern="[8,]"
         [ngClass]="{ 'valid': passwordInput.valid && passwordFocused, 'invalid': passwordInput.invalid && passwordFocused }"
         (focus)="passwordFocused = true"
         (blur)="passwordFocused = false"
