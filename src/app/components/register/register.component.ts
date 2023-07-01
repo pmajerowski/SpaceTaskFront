@@ -9,6 +9,7 @@ import { RegisterService } from "../../services/register.service";
 })
 
 export class RegisterComponent {
+  loading = false;
   emailFocused: boolean = false;
   passwordFocused: boolean = false;
   email!: string;
@@ -37,11 +38,20 @@ export class RegisterComponent {
         return;
     }
 
+
     this.registerService.signUp(this.email, this.password, this.name)
             .subscribe(
               (response) => {
-                console.log(response);
-                this.toggleRegister();
+                this.loading = true;
+                const minDelay = 400;
+                const maxDelay = 3000;
+
+                const delay = Math.floor(Math.random() * (maxDelay - minDelay + 1)) + minDelay;
+                setTimeout(() => {
+                        this.loading = false;
+                        this.toggleRegister();
+                      }, delay);
+
               },
               (error) => {
                 if (error.status === 403) {

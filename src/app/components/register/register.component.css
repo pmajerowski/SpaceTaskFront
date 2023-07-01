@@ -9,6 +9,11 @@
   position: relative;
 }
 
+h3 span {
+  font-size: larger;
+
+}
+
 .add-task-container {
   background-color: rgba(248, 248, 249, 0.98);
   width: 550px;
@@ -67,7 +72,7 @@
   margin-top: 20px;
   color: dimgrey;
   text-align: right;
-  font-size: small;
+  font-size: 0.85rem;
   padding-left: 10px;
 }
 

@@ -9,6 +9,7 @@ import {TaskService} from "../../services/task.service";
   styleUrls: ['./tasks-board.component.css']
 })
 export class TasksBoardComponent implements AfterViewInit {
+  loading = true;
   tasks: Task[] = [];
   @Input() tasksFilter!: TaskStatus;
   @Output() tasksUpdated: EventEmitter<Task[]> = new EventEmitter<Task[]>();
@@ -21,6 +22,16 @@ export class TasksBoardComponent implements AfterViewInit {
   constructor(private taskService: TaskService) {}
 
   ngAfterViewInit() {
+
+      const minDelay = 600;
+      const maxDelay = 3000;
+
+      const delay = Math.floor(Math.random() * (maxDelay - minDelay + 1)) + minDelay;
+
+      setTimeout(() => {
+        this.loading = false;
+      }, delay);
+
     this.loadTasks();
   }
 
