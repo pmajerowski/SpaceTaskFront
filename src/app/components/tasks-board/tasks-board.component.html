@@ -1,3 +1,6 @@
+<app-loading *ngIf="loading"></app-loading>
+
+<div *ngIf="!loading">
 
 <app-add-task (onAddTask)="addTask($event)"></app-add-task>
 <app-edit-task
@@ -10,7 +13,7 @@
 
 <div class="container-full">
   <div class="container">
-    <h2>to do</h2>
+    <h2>To do</h2>
     <hr>
     <div class="container_tasks">
       <app-tasks
@@ -25,7 +28,7 @@
   </div>
 
   <div class="container">
-    <h2>in progress</h2>
+    <h2>In progress</h2>
     <hr>
     <div class="container_tasks">
       <app-tasks
@@ -40,7 +43,7 @@
   </div>
 
   <div class="container">
-    <h2>done</h2>
+    <h2>Done</h2>
     <hr>
     <div class="container_tasks">
       <app-tasks
@@ -53,4 +56,6 @@
       ></app-tasks>
     </div>
   </div>
+</div>
+
 </div>

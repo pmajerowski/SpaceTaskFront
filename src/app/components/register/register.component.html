@@ -1,0 +1,80 @@
+<div class="add-task-container">
+  <app-loading *ngIf="loading"></app-loading>
+
+  <form (ngSubmit)="onSubmit($event)" class="add-form" #registerForm="ngForm" >
+
+    <h3 class="head">
+      <span>Join SpaceTask today! </span>
+    </h3>
+
+    <div class="form-control">
+      <input
+        type="email"
+        name="email"
+        id="email"
+        email
+        [(ngModel)]="email"
+        placeholder="your@email.net"
+        maxlength="40"
+        required
+        autofocus
+        #emailInput="ngModel"
+        pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+        (focus)="emailFocused = true"
+        (blur)="emailFocused = false"
+        (input)="clearError()"
+      />
+      <span
+        class="validation-icon"
+        [ngClass]="{ 'fa-solid fa-check': emailInput.valid && emailFocused, 'fa-solid fa-times': emailInput.invalid && emailFocused }"
+        *ngIf="emailFocused"
+      ></span>
+    </div>
+
+    <div class="form-control">
+      <input
+        name="password"
+        type="password"
+        id="password"
+        [(ngModel)]="password"
+        placeholder="password"
+        minlength="8"
+        required
+        #passwordInput="ngModel"
+        [ngClass]="{ 'valid': passwordInput.valid && passwordFocused, 'invalid': passwordInput.invalid && passwordFocused }"
+        (focus)="passwordFocused = true"
+        (blur)="passwordFocused = false"
+        (input)="clearError()"
+      />
+      <span
+        class="validation-icon"
+        [ngClass]="{ 'fa-solid fa-check': passwordInput.valid && passwordFocused, 'fa-solid fa-times': passwordInput.invalid && passwordFocused }"
+        *ngIf="passwordFocused"
+      ></span>
+    </div>
+
+    <div class="form-control">
+      <input
+        name="name"
+        type="text"
+        id="name"
+        [(ngModel)]="name"
+        placeholder="Your name"
+        maxlength="40"
+      />
+    </div>
+
+    <div class="error-message" *ngIf="emailError"> {{ emailError }} </div>
+    <div class="error-message" *ngIf="passwordError"> {{ passwordError }} </div>
+
+    <div class="buttons">
+      <button type="submit" class="btn btn-save" >Sign up</button>
+    </div>
+
+    <div class="right">
+      <p >Already have an account?</p>
+      <a href="#" (click)="toggleRegister()">Sign in</a>
+    </div>
+
+  </form>
+</div>

@@ -9,7 +9,9 @@ import { TasksBoardComponent } from './components/tasks-board/tasks-board.compon
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  loading = false;
   logged!: boolean;
+  registerForm: boolean = false;
 
   constructor(private localStorage: LocalStorageService) {}
 
@@ -22,8 +24,26 @@ export class AppComponent implements OnInit {
   }
 
   handleLogout() {
-    this.localStorage.remove('jwt-token');
-    this.logged = false;
+    this.loading = true;
+    const minDelay = 1000;
+    const maxDelay = 3000;
+
+    const delay = Math.floor(Math.random() * (maxDelay - minDelay + 1)) + minDelay;
+
+    setTimeout(() => {
+      this.loading = false;
+      this.localStorage.remove('jwt-token');
+          this.logged = false;
+    }, delay);
+
+  }
+
+  showRegisterForm() {
+    this.registerForm = true;
+  }
+
+  hideRegisterForm() {
+    this.registerForm = false;
   }
 
   private checkToken() {

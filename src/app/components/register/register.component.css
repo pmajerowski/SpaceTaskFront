@@ -1,0 +1,120 @@
+.add-form {
+  margin-bottom: 10px;
+  margin-left: 9px;
+  width: 95%;
+  padding-right: 0px;
+}
+
+.form-control {
+  position: relative;
+}
+
+h3 span {
+  font-size: larger;
+
+}
+
+.add-task-container {
+  background-color: rgba(248, 248, 249, 0.98);
+  width: 550px;
+  max-width: 40%;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 30%;
+  border: 1px solid black;
+  padding: 30px;
+  border-radius: 10px;
+  height: auto;
+  box-shadow: 24px 114px 118px 18px rgba(0, 0, 15, 0.6);
+
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+.add-task-container h3 {
+  margin-left: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.btn {
+  margin-left: 10px;
+  width: 100%;
+  transition: transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(1.02);
+  background: crimson;
+}
+
+.btn:active {
+  transform: scale(0.83);
+}
+
+.btn-save {
+  background: #3a79da;
+}
+
+.btn-save:hover {
+  background: mediumseagreen;
+}
+
+.right {
+  display: flex;
+  margin-top: 20px;
+  color: dimgrey;
+  text-align: right;
+  font-size: 0.85rem;
+  padding-left: 10px;
+}
+
+a {
+  color: deepskyblue;
+  padding-left: 10px;
+  letter-spacing: .08rem;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.error-message {
+  color: red;
+  letter-spacing: .05rem;
+  font-size: small;
+  position: relative;
+  padding-left:15px;
+  padding-bottom: 12px;
+}
+
+input {
+  padding-right: 30px;
+}
+
+.validation-icon {
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  transform: translateY(-50%);
+  font-size: 1em;
+}
+
+.validation-icon::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f00c"; /* Unicode for tick icon */
+  color: limegreen;
+}
+
+.validation-icon.fa-times::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f00d"; /* Unicode for times icon */
+  color: crimson;
+}

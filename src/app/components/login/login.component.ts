@@ -10,15 +10,36 @@ import { LocalStorageService } from "../../services/local-storage.service";
 export class LoginComponent {
   email !: string;
   password !: string;
+  error: string = ''
   @Output() loggedIn = new EventEmitter<boolean>();
+  @Output() register: EventEmitter<any> = new EventEmitter();
 
   constructor(private loginService: LoginServiceService, private localStorage: LocalStorageService) { }
 
-  onSubmit() {
-    this.loginService.signIn(this.email, this.password)
-        .subscribe((response) => {
-              this.localStorage.set('jwt-token', response.token);
-              this.loggedIn.emit(true);
-          });
+  onSubmit(event: Event) {
+      event.preventDefault();
+      this.loginService.signIn(this.email, this.password)
+        .subscribe(
+          (response) => {
+            this.localStorage.set('jwt-token', response.token);
+            this.loggedIn.emit(true);
+          },
+          (error) => {
+            if (error.status === 403) {
+              this.error = 'Invalid email or password.';
+            } else {
+              this.error = 'An error occurred. Please try again.';
+            }
+          }
+        );
+    }
+
+  toggleRegister() {
+    this.register.emit();
   }
+
+  clearError() {
+      this.error = '';
+  }
+
 }

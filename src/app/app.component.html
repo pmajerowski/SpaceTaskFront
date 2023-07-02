@@ -1,17 +1,22 @@
-<div class="navbar">
-  <div class="left-element">
-    <app-header title="SpaceTask" [loggedIn]="logged"></app-header>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<app-loading *ngIf="loading"></app-loading>
+<div *ngIf="!loading">
+  <div class="navbar">
+    <div class="left-element">
+      <app-header title="SpaceTask" [loggedIn]="logged"></app-header>
+    </div>
+    <div class="right-element">
+      <app-button
+        *ngIf="logged"
+        color="deepskyblue"
+        text="Logout"
+        (btnClick)="handleLogout()">
+      </app-button>
+    </div>
   </div>
-  <div class="right-element">
-    <app-button
-      *ngIf="logged"
-      color="deepskyblue"
-      text="Logout"
-      (btnClick)="handleLogout()">
-    </app-button>
-  </div>
-</div>
 
-<app-login (loggedIn)="handleLogin($event)" *ngIf="!logged"></app-login>
-<app-tasks-board *ngIf="logged"></app-tasks-board>
-<app-footer *ngIf="logged"></app-footer>
+  <app-login (loggedIn)="handleLogin($event)" *ngIf="!logged" (register)="showRegisterForm()"></app-login>
+  <app-register *ngIf="registerForm" (hideRegister)="hideRegisterForm()"></app-register>
+  <app-tasks-board *ngIf="logged"></app-tasks-board>
+  <app-footer ></app-footer>
+</div>

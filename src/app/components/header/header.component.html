@@ -8,10 +8,5 @@
             text="{{ showAddTask ? 'Close' : 'Add' }}"
             (btnClick)="toggleAddTask()">
         </app-button>
-        <app-button
-          *ngIf="!loggedIn"
-          text="register">
-        </app-button>
     </div>
 </header>
-
