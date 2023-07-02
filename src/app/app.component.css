@@ -18,7 +18,19 @@ div {
 }
 
 .right-element {
-  /* Additional styles for the right element if needed */
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 60px;
+    color: white;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-left: 45px;
+    padding-top: 30px;
+    font-size: large;
+}
+
+.right-element h3 {
+  margin-right: 40px;
 }
 
 
